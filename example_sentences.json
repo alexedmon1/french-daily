@@ -1,0 +1,406 @@
+{
+  "aimer": {
+    "sentence": "J'aime beaucoup le chocolat.",
+    "translation": "I really like chocolate."
+  },
+  "avoir": {
+    "sentence": "J'ai deux frères et une sœur.",
+    "translation": "I have two brothers and a sister."
+  },
+  "être": {
+    "sentence": "Elle est très intelligente.",
+    "translation": "She is very intelligent."
+  },
+  "faire": {
+    "sentence": "Nous faisons du sport le samedi.",
+    "translation": "We play sports on Saturdays."
+  },
+  "aller": {
+    "sentence": "Je vais au cinéma ce soir.",
+    "translation": "I'm going to the cinema tonight."
+  },
+  "venir": {
+    "sentence": "Ils viennent de Paris.",
+    "translation": "They come from Paris."
+  },
+  "pouvoir": {
+    "sentence": "Tu peux m'aider, s'il te plaît ?",
+    "translation": "Can you help me, please?"
+  },
+  "vouloir": {
+    "sentence": "Je voudrais un café, s'il vous plaît.",
+    "translation": "I would like a coffee, please."
+  },
+  "devoir": {
+    "sentence": "Tu dois faire tes devoirs.",
+    "translation": "You have to do your homework."
+  },
+  "savoir": {
+    "sentence": "Elle sait parler trois langues.",
+    "translation": "She knows how to speak three languages."
+  },
+  "connaître": {
+    "sentence": "Je connais bien cette ville.",
+    "translation": "I know this city well."
+  },
+  "parler": {
+    "sentence": "Nous parlons français en classe.",
+    "translation": "We speak French in class."
+  },
+  "manger": {
+    "sentence": "On mange ensemble ce midi ?",
+    "translation": "Shall we eat together at lunch?"
+  },
+  "boire": {
+    "sentence": "Il boit du thé tous les matins.",
+    "translation": "He drinks tea every morning."
+  },
+  "lire": {
+    "sentence": "J'aime lire avant de dormir.",
+    "translation": "I like to read before sleeping."
+  },
+  "écrire": {
+    "sentence": "Elle écrit une lettre à sa grand-mère.",
+    "translation": "She is writing a letter to her grandmother."
+  },
+  "dormir": {
+    "sentence": "Les enfants dorment déjà.",
+    "translation": "The children are already sleeping."
+  },
+  "prendre": {
+    "sentence": "Je prends le bus tous les jours.",
+    "translation": "I take the bus every day."
+  },
+  "mettre": {
+    "sentence": "Mets ton manteau, il fait froid !",
+    "translation": "Put on your coat, it's cold!"
+  },
+  "voir": {
+    "sentence": "Tu vois la montagne là-bas ?",
+    "translation": "Can you see the mountain over there?"
+  },
+  "regarder": {
+    "sentence": "Nous regardons un film ce soir.",
+    "translation": "We're watching a movie tonight."
+  },
+  "écouter": {
+    "sentence": "J'écoute de la musique en courant.",
+    "translation": "I listen to music while running."
+  },
+  "travailler": {
+    "sentence": "Mon père travaille dans un hôpital.",
+    "translation": "My father works in a hospital."
+  },
+  "acheter": {
+    "sentence": "Nous achetons du pain à la boulangerie.",
+    "translation": "We buy bread at the bakery."
+  },
+  "donner": {
+    "sentence": "Il donne un cadeau à sa mère.",
+    "translation": "He gives a gift to his mother."
+  },
+  "trouver": {
+    "sentence": "J'ai trouvé mes clés sous le canapé.",
+    "translation": "I found my keys under the sofa."
+  },
+  "penser": {
+    "sentence": "Je pense souvent à mes amis.",
+    "translation": "I often think about my friends."
+  },
+  "croire": {
+    "sentence": "Tu crois qu'il va pleuvoir ?",
+    "translation": "Do you think it's going to rain?"
+  },
+  "attendre": {
+    "sentence": "J'attends le bus depuis vingt minutes.",
+    "translation": "I've been waiting for the bus for twenty minutes."
+  },
+  "répondre": {
+    "sentence": "Il n'a pas répondu à ma question.",
+    "translation": "He didn't answer my question."
+  },
+  "comprendre": {
+    "sentence": "Je ne comprends pas cette phrase.",
+    "translation": "I don't understand this sentence."
+  },
+  "apprendre": {
+    "sentence": "Elle apprend le piano depuis deux ans.",
+    "translation": "She has been learning piano for two years."
+  },
+  "ouvrir": {
+    "sentence": "Ouvre la fenêtre, il fait chaud.",
+    "translation": "Open the window, it's hot."
+  },
+  "fermer": {
+    "sentence": "N'oublie pas de fermer la porte.",
+    "translation": "Don't forget to close the door."
+  },
+  "partir": {
+    "sentence": "Nous partons en vacances demain.",
+    "translation": "We're leaving on vacation tomorrow."
+  },
+  "arriver": {
+    "sentence": "Le train arrive à dix heures.",
+    "translation": "The train arrives at ten o'clock."
+  },
+  "sortir": {
+    "sentence": "On sort ce soir avec des amis.",
+    "translation": "We're going out tonight with friends."
+  },
+  "entrer": {
+    "sentence": "Elle entre dans la salle sans bruit.",
+    "translation": "She enters the room quietly."
+  },
+  "rester": {
+    "sentence": "Je reste à la maison aujourd'hui.",
+    "translation": "I'm staying home today."
+  },
+  "tomber": {
+    "sentence": "Les feuilles tombent en automne.",
+    "translation": "The leaves fall in autumn."
+  },
+  "courir": {
+    "sentence": "Il court dans le parc chaque matin.",
+    "translation": "He runs in the park every morning."
+  },
+  "jouer": {
+    "sentence": "Les enfants jouent dans le jardin.",
+    "translation": "The children are playing in the garden."
+  },
+  "chanter": {
+    "sentence": "Elle chante sous la douche.",
+    "translation": "She sings in the shower."
+  },
+  "danser": {
+    "sentence": "Nous dansons la salsa le vendredi soir.",
+    "translation": "We dance salsa on Friday nights."
+  },
+  "nager": {
+    "sentence": "Je nage dans la piscine en été.",
+    "translation": "I swim in the pool in summer."
+  },
+  "cuisiner": {
+    "sentence": "Ma mère cuisine très bien.",
+    "translation": "My mother cooks very well."
+  },
+  "conduire": {
+    "sentence": "Il conduit depuis l'âge de dix-huit ans.",
+    "translation": "He has been driving since the age of eighteen."
+  },
+  "chercher": {
+    "sentence": "Je cherche mes lunettes partout.",
+    "translation": "I'm looking for my glasses everywhere."
+  },
+  "commencer": {
+    "sentence": "Le cours commence à neuf heures.",
+    "translation": "The class starts at nine o'clock."
+  },
+  "finir": {
+    "sentence": "J'ai fini mes devoirs.",
+    "translation": "I finished my homework."
+  },
+  "choisir": {
+    "sentence": "Tu as choisi ton dessert ?",
+    "translation": "Have you chosen your dessert?"
+  },
+  "perdre": {
+    "sentence": "J'ai perdu mon portefeuille.",
+    "translation": "I lost my wallet."
+  },
+  "oublier": {
+    "sentence": "N'oublie pas ton parapluie !",
+    "translation": "Don't forget your umbrella!"
+  },
+  "se lever": {
+    "sentence": "Je me lève à sept heures.",
+    "translation": "I get up at seven o'clock."
+  },
+  "se coucher": {
+    "sentence": "Les enfants se couchent à vingt heures.",
+    "translation": "The children go to bed at eight o'clock."
+  },
+  "s'habiller": {
+    "sentence": "Elle s'habille toujours avec élégance.",
+    "translation": "She always dresses elegantly."
+  },
+  "se promener": {
+    "sentence": "Nous nous promenons au bord de la mer.",
+    "translation": "We walk along the seaside."
+  },
+  "heureux": {
+    "sentence": "Je suis très heureux de te voir.",
+    "translation": "I'm very happy to see you."
+  },
+  "triste": {
+    "sentence": "Il est triste parce qu'il a perdu son chat.",
+    "translation": "He is sad because he lost his cat."
+  },
+  "content": {
+    "sentence": "Elle est contente de son résultat.",
+    "translation": "She is happy with her result."
+  },
+  "fatigué": {
+    "sentence": "Je suis fatigué après le travail.",
+    "translation": "I'm tired after work."
+  },
+  "malade": {
+    "sentence": "Il est malade depuis hier.",
+    "translation": "He has been sick since yesterday."
+  },
+  "grand": {
+    "sentence": "Mon frère est plus grand que moi.",
+    "translation": "My brother is taller than me."
+  },
+  "petit": {
+    "sentence": "La petite fille joue avec sa poupée.",
+    "translation": "The little girl is playing with her doll."
+  },
+  "beau": {
+    "sentence": "Il fait beau aujourd'hui.",
+    "translation": "The weather is nice today."
+  },
+  "nouveau": {
+    "sentence": "J'ai un nouveau téléphone.",
+    "translation": "I have a new phone."
+  },
+  "vieux": {
+    "sentence": "Ce vieux château a mille ans.",
+    "translation": "This old castle is a thousand years old."
+  },
+  "bon": {
+    "sentence": "Ce gâteau est vraiment bon.",
+    "translation": "This cake is really good."
+  },
+  "mauvais": {
+    "sentence": "Il fait mauvais temps aujourd'hui.",
+    "translation": "The weather is bad today."
+  },
+  "chaud": {
+    "sentence": "Il fait très chaud en été.",
+    "translation": "It's very hot in summer."
+  },
+  "froid": {
+    "sentence": "J'ai froid, ferme la fenêtre.",
+    "translation": "I'm cold, close the window."
+  },
+  "maison": {
+    "sentence": "Notre maison a un grand jardin.",
+    "translation": "Our house has a big garden."
+  },
+  "école": {
+    "sentence": "L'école commence en septembre.",
+    "translation": "School starts in September."
+  },
+  "livre": {
+    "sentence": "Ce livre est passionnant.",
+    "translation": "This book is fascinating."
+  },
+  "chat": {
+    "sentence": "Le chat dort sur le canapé.",
+    "translation": "The cat is sleeping on the sofa."
+  },
+  "chien": {
+    "sentence": "Mon chien adore se promener.",
+    "translation": "My dog loves to go for walks."
+  },
+  "voiture": {
+    "sentence": "Ma voiture est garée devant la maison.",
+    "translation": "My car is parked in front of the house."
+  },
+  "famille": {
+    "sentence": "Toute la famille se réunit pour Noël.",
+    "translation": "The whole family gets together for Christmas."
+  },
+  "ami": {
+    "sentence": "Mon meilleur ami habite à Lyon.",
+    "translation": "My best friend lives in Lyon."
+  },
+  "ville": {
+    "sentence": "Paris est une grande ville.",
+    "translation": "Paris is a big city."
+  },
+  "temps": {
+    "sentence": "Je n'ai pas le temps de finir.",
+    "translation": "I don't have time to finish."
+  },
+  "jour": {
+    "sentence": "C'est le plus beau jour de ma vie.",
+    "translation": "It's the most beautiful day of my life."
+  },
+  "argent": {
+    "sentence": "Il économise de l'argent pour voyager.",
+    "translation": "He's saving money to travel."
+  },
+  "travail": {
+    "sentence": "Elle aime beaucoup son travail.",
+    "translation": "She really likes her job."
+  },
+  "se réveiller": {
+    "sentence": "Je me réveille toujours avant le réveil.",
+    "translation": "I always wake up before the alarm."
+  },
+  "se laver": {
+    "sentence": "Il se lave les mains avant de manger.",
+    "translation": "He washes his hands before eating."
+  },
+  "se brosser": {
+    "sentence": "Brosse-toi les dents après le repas.",
+    "translation": "Brush your teeth after the meal."
+  },
+  "se dépêcher": {
+    "sentence": "Dépêche-toi, on va être en retard !",
+    "translation": "Hurry up, we're going to be late!"
+  },
+  "s'asseoir": {
+    "sentence": "Asseyez-vous, s'il vous plaît.",
+    "translation": "Please sit down."
+  },
+  "se souvenir": {
+    "sentence": "Je me souviens de notre premier voyage.",
+    "translation": "I remember our first trip."
+  },
+  "essayer": {
+    "sentence": "J'essaie d'apprendre une nouvelle langue.",
+    "translation": "I'm trying to learn a new language."
+  },
+  "payer": {
+    "sentence": "Tu peux payer par carte bancaire.",
+    "translation": "You can pay by credit card."
+  },
+  "envoyer": {
+    "sentence": "Elle envoie un message à son ami.",
+    "translation": "She sends a message to her friend."
+  },
+  "recevoir": {
+    "sentence": "J'ai reçu un cadeau pour mon anniversaire.",
+    "translation": "I received a gift for my birthday."
+  },
+  "appeler": {
+    "sentence": "Appelle-moi quand tu arrives.",
+    "translation": "Call me when you arrive."
+  },
+  "vivre": {
+    "sentence": "Nous vivons en France depuis cinq ans.",
+    "translation": "We've been living in France for five years."
+  },
+  "mourir": {
+    "sentence": "Les fleurs meurent sans eau.",
+    "translation": "Flowers die without water."
+  },
+  "naître": {
+    "sentence": "Elle est née en juillet.",
+    "translation": "She was born in July."
+  },
+  "sentir": {
+    "sentence": "Ces fleurs sentent très bon.",
+    "translation": "These flowers smell very good."
+  },
+  "tenir": {
+    "sentence": "Tiens-moi la porte, s'il te plaît.",
+    "translation": "Hold the door for me, please."
+  },
+  "devenir": {
+    "sentence": "Il veut devenir médecin.",
+    "translation": "He wants to become a doctor."
+  }
+}

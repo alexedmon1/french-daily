@@ -1,0 +1,456 @@
+{
+  "topic": "Basic Sentences",
+  "description": "Translate complete sentences between French and English",
+  "sentences": [
+    {
+      "id": "st001",
+      "level": 1,
+      "french": "Je vais au marché.",
+      "english": "I go to the market.",
+      "alternatives_en": ["I'm going to the market."],
+      "alternatives_fr": [],
+      "hint": "aller + au"
+    },
+    {
+      "id": "st002",
+      "level": 1,
+      "french": "Il fait beau aujourd'hui.",
+      "english": "The weather is nice today.",
+      "alternatives_en": ["It's nice today.", "It's nice out today."],
+      "alternatives_fr": [],
+      "hint": "faire + beau"
+    },
+    {
+      "id": "st003",
+      "level": 1,
+      "french": "J'ai un chat noir.",
+      "english": "I have a black cat.",
+      "alternatives_en": [],
+      "alternatives_fr": [],
+      "hint": "avoir + article indéfini"
+    },
+    {
+      "id": "st004",
+      "level": 1,
+      "french": "Nous mangeons à midi.",
+      "english": "We eat at noon.",
+      "alternatives_en": ["We're eating at noon."],
+      "alternatives_fr": [],
+      "hint": "manger + heure"
+    },
+    {
+      "id": "st005",
+      "level": 1,
+      "french": "Elle aime la musique.",
+      "english": "She likes music.",
+      "alternatives_en": ["She loves music."],
+      "alternatives_fr": [],
+      "hint": "aimer + article défini"
+    },
+    {
+      "id": "st006",
+      "level": 1,
+      "french": "Tu parles français ?",
+      "english": "Do you speak French?",
+      "alternatives_en": ["You speak French?"],
+      "alternatives_fr": ["Parles-tu français ?", "Est-ce que tu parles français ?"],
+      "hint": "parler + langue"
+    },
+    {
+      "id": "st007",
+      "level": 1,
+      "french": "Je m'appelle Marie.",
+      "english": "My name is Marie.",
+      "alternatives_en": ["I'm called Marie."],
+      "alternatives_fr": [],
+      "hint": "s'appeler"
+    },
+    {
+      "id": "st008",
+      "level": 1,
+      "french": "Il est huit heures.",
+      "english": "It's eight o'clock.",
+      "alternatives_en": ["It is eight o'clock."],
+      "alternatives_fr": [],
+      "hint": "dire l'heure"
+    },
+    {
+      "id": "st009",
+      "level": 1,
+      "french": "J'habite à Paris.",
+      "english": "I live in Paris.",
+      "alternatives_en": [],
+      "alternatives_fr": ["Je vis à Paris."],
+      "hint": "habiter + à"
+    },
+    {
+      "id": "st010",
+      "level": 1,
+      "french": "Où est la gare ?",
+      "english": "Where is the train station?",
+      "alternatives_en": ["Where's the train station?"],
+      "alternatives_fr": ["Où se trouve la gare ?"],
+      "hint": "où + être"
+    },
+    {
+      "id": "st011",
+      "level": 1,
+      "french": "Je voudrais un café.",
+      "english": "I would like a coffee.",
+      "alternatives_en": ["I'd like a coffee."],
+      "alternatives_fr": [],
+      "hint": "vouloir au conditionnel"
+    },
+    {
+      "id": "st012",
+      "level": 1,
+      "french": "Les enfants jouent dehors.",
+      "english": "The children are playing outside.",
+      "alternatives_en": ["The children play outside.", "The kids are playing outside."],
+      "alternatives_fr": [],
+      "hint": "jouer + dehors"
+    },
+    {
+      "id": "st013",
+      "level": 1,
+      "french": "Elle est très gentille.",
+      "english": "She is very kind.",
+      "alternatives_en": ["She's very kind.", "She is very nice.", "She's very nice."],
+      "alternatives_fr": [],
+      "hint": "être + adjectif"
+    },
+    {
+      "id": "st014",
+      "level": 1,
+      "french": "Je ne sais pas.",
+      "english": "I don't know.",
+      "alternatives_en": ["I do not know."],
+      "alternatives_fr": [],
+      "hint": "ne...pas + savoir"
+    },
+    {
+      "id": "st015",
+      "level": 1,
+      "french": "Nous avons deux chiens.",
+      "english": "We have two dogs.",
+      "alternatives_en": [],
+      "alternatives_fr": ["On a deux chiens."],
+      "hint": "avoir + nombre"
+    },
+    {
+      "id": "st016",
+      "level": 1,
+      "french": "C'est mon frère.",
+      "english": "This is my brother.",
+      "alternatives_en": ["He's my brother.", "That's my brother.", "It's my brother."],
+      "alternatives_fr": [],
+      "hint": "c'est + possessif"
+    },
+    {
+      "id": "st017",
+      "level": 1,
+      "french": "Je suis fatigué.",
+      "english": "I am tired.",
+      "alternatives_en": ["I'm tired."],
+      "alternatives_fr": ["Je suis fatiguée."],
+      "hint": "être + adjectif"
+    },
+    {
+      "id": "st018",
+      "level": 2,
+      "french": "Je dois partir maintenant.",
+      "english": "I have to leave now.",
+      "alternatives_en": ["I must leave now.", "I need to leave now."],
+      "alternatives_fr": ["Il faut que je parte maintenant."],
+      "hint": "devoir + infinitif"
+    },
+    {
+      "id": "st019",
+      "level": 2,
+      "french": "Il pleut depuis ce matin.",
+      "english": "It has been raining since this morning.",
+      "alternatives_en": ["It's been raining since this morning."],
+      "alternatives_fr": [],
+      "hint": "depuis + présent"
+    },
+    {
+      "id": "st020",
+      "level": 2,
+      "french": "Nous allons au cinéma ce soir.",
+      "english": "We're going to the cinema tonight.",
+      "alternatives_en": ["We are going to the cinema tonight.", "We're going to the movies tonight."],
+      "alternatives_fr": ["On va au cinéma ce soir."],
+      "hint": "aller + au + temps"
+    },
+    {
+      "id": "st021",
+      "level": 2,
+      "french": "Elle a acheté une nouvelle robe.",
+      "english": "She bought a new dress.",
+      "alternatives_en": ["She has bought a new dress."],
+      "alternatives_fr": [],
+      "hint": "passé composé avec avoir"
+    },
+    {
+      "id": "st022",
+      "level": 2,
+      "french": "Je me suis levé tôt.",
+      "english": "I got up early.",
+      "alternatives_en": ["I woke up early."],
+      "alternatives_fr": ["Je me suis levée tôt."],
+      "hint": "passé composé pronominal"
+    },
+    {
+      "id": "st023",
+      "level": 2,
+      "french": "Pouvez-vous m'aider ?",
+      "english": "Can you help me?",
+      "alternatives_en": ["Could you help me?"],
+      "alternatives_fr": ["Vous pouvez m'aider ?", "Est-ce que vous pouvez m'aider ?"],
+      "hint": "pouvoir + pronom COI"
+    },
+    {
+      "id": "st024",
+      "level": 2,
+      "french": "Il y a beaucoup de monde.",
+      "english": "There are a lot of people.",
+      "alternatives_en": ["There are many people.", "There's a lot of people."],
+      "alternatives_fr": [],
+      "hint": "il y a + quantité"
+    },
+    {
+      "id": "st025",
+      "level": 2,
+      "french": "Je n'ai rien compris.",
+      "english": "I didn't understand anything.",
+      "alternatives_en": ["I understood nothing."],
+      "alternatives_fr": [],
+      "hint": "ne...rien + passé composé"
+    },
+    {
+      "id": "st026",
+      "level": 2,
+      "french": "Qu'est-ce que tu fais ce week-end ?",
+      "english": "What are you doing this weekend?",
+      "alternatives_en": ["What do you do this weekend?"],
+      "alternatives_fr": ["Tu fais quoi ce week-end ?"],
+      "hint": "qu'est-ce que + faire"
+    },
+    {
+      "id": "st027",
+      "level": 2,
+      "french": "Je suis en train de lire.",
+      "english": "I'm reading right now.",
+      "alternatives_en": ["I am reading.", "I'm in the middle of reading."],
+      "alternatives_fr": [],
+      "hint": "être en train de + infinitif"
+    },
+    {
+      "id": "st028",
+      "level": 2,
+      "french": "Il faut que je parte.",
+      "english": "I have to go.",
+      "alternatives_en": ["I need to go.", "I must go."],
+      "alternatives_fr": ["Je dois partir."],
+      "hint": "il faut que + subjonctif"
+    },
+    {
+      "id": "st029",
+      "level": 2,
+      "french": "Elle est plus grande que moi.",
+      "english": "She is taller than me.",
+      "alternatives_en": ["She's taller than me.", "She is taller than I am."],
+      "alternatives_fr": [],
+      "hint": "comparatif: plus...que"
+    },
+    {
+      "id": "st030",
+      "level": 2,
+      "french": "Je viens de manger.",
+      "english": "I just ate.",
+      "alternatives_en": ["I've just eaten.", "I just finished eating."],
+      "alternatives_fr": [],
+      "hint": "venir de + infinitif (passé récent)"
+    },
+    {
+      "id": "st031",
+      "level": 2,
+      "french": "Ça ne fait rien.",
+      "english": "It doesn't matter.",
+      "alternatives_en": ["It's okay.", "Never mind."],
+      "alternatives_fr": ["Ce n'est pas grave."],
+      "hint": "expression courante"
+    },
+    {
+      "id": "st032",
+      "level": 2,
+      "french": "Nous nous sommes bien amusés.",
+      "english": "We had a great time.",
+      "alternatives_en": ["We had a lot of fun.", "We really enjoyed ourselves."],
+      "alternatives_fr": ["On s'est bien amusés."],
+      "hint": "passé composé pronominal"
+    },
+    {
+      "id": "st033",
+      "level": 2,
+      "french": "Je ne l'ai jamais vu.",
+      "english": "I have never seen him.",
+      "alternatives_en": ["I've never seen him.", "I never saw him."],
+      "alternatives_fr": ["Je ne l'ai jamais vue."],
+      "hint": "ne...jamais + pronom COD"
+    },
+    {
+      "id": "st034",
+      "level": 3,
+      "french": "Si j'avais le temps, je voyagerais.",
+      "english": "If I had time, I would travel.",
+      "alternatives_en": ["If I had the time, I would travel."],
+      "alternatives_fr": [],
+      "hint": "si + imparfait, conditionnel"
+    },
+    {
+      "id": "st035",
+      "level": 3,
+      "french": "Il faudrait qu'on se voie plus souvent.",
+      "english": "We should see each other more often.",
+      "alternatives_en": ["We'd need to see each other more often."],
+      "alternatives_fr": ["Il faudrait qu'on se voit plus souvent."],
+      "hint": "falloir au conditionnel + subjonctif"
+    },
+    {
+      "id": "st036",
+      "level": 3,
+      "french": "Je ne sais pas ce qu'il veut.",
+      "english": "I don't know what he wants.",
+      "alternatives_en": ["I do not know what he wants."],
+      "alternatives_fr": [],
+      "hint": "ce que — pronom relatif"
+    },
+    {
+      "id": "st037",
+      "level": 3,
+      "french": "Bien qu'il pleuve, nous sortons.",
+      "english": "Although it's raining, we're going out.",
+      "alternatives_en": ["Even though it's raining, we're going out."],
+      "alternatives_fr": ["Même s'il pleut, nous sortons."],
+      "hint": "bien que + subjonctif"
+    },
+    {
+      "id": "st038",
+      "level": 3,
+      "french": "C'est la meilleure décision que j'aie prise.",
+      "english": "It's the best decision I've made.",
+      "alternatives_en": ["It's the best decision I ever made.", "That's the best decision I've made."],
+      "alternatives_fr": [],
+      "hint": "superlatif + subjonctif"
+    },
+    {
+      "id": "st039",
+      "level": 3,
+      "french": "Il m'a dit qu'il viendrait demain.",
+      "english": "He told me he would come tomorrow.",
+      "alternatives_en": ["He told me that he would come tomorrow."],
+      "alternatives_fr": [],
+      "hint": "discours indirect + conditionnel"
+    },
+    {
+      "id": "st040",
+      "level": 3,
+      "french": "Je cherche quelqu'un qui puisse m'aider.",
+      "english": "I'm looking for someone who can help me.",
+      "alternatives_en": ["I am looking for someone who can help me."],
+      "alternatives_fr": [],
+      "hint": "subjonctif après antécédent indéfini"
+    },
+    {
+      "id": "st041",
+      "level": 3,
+      "french": "Quoi que tu fasses, je te soutiendrai.",
+      "english": "Whatever you do, I will support you.",
+      "alternatives_en": ["No matter what you do, I will support you."],
+      "alternatives_fr": [],
+      "hint": "quoi que + subjonctif"
+    },
+    {
+      "id": "st042",
+      "level": 3,
+      "french": "Ça fait longtemps que je ne l'ai pas vu.",
+      "english": "I haven't seen him in a long time.",
+      "alternatives_en": ["It's been a long time since I saw him.", "It's been a long time since I've seen him."],
+      "alternatives_fr": ["Ça fait longtemps que je ne l'ai pas vue.", "Il y a longtemps que je ne l'ai pas vu."],
+      "hint": "ça fait...que + négation"
+    },
+    {
+      "id": "st043",
+      "level": 3,
+      "french": "Plus je lis, plus j'apprends.",
+      "english": "The more I read, the more I learn.",
+      "alternatives_en": [],
+      "alternatives_fr": [],
+      "hint": "plus...plus (double comparatif)"
+    },
+    {
+      "id": "st044",
+      "level": 3,
+      "french": "Il se peut qu'il ait raison.",
+      "english": "He may be right.",
+      "alternatives_en": ["It's possible that he's right.", "He might be right."],
+      "alternatives_fr": ["Il est possible qu'il ait raison."],
+      "hint": "il se peut que + subjonctif"
+    },
+    {
+      "id": "st045",
+      "level": 3,
+      "french": "Je regrette de ne pas être venu plus tôt.",
+      "english": "I regret not coming earlier.",
+      "alternatives_en": ["I regret not having come earlier."],
+      "alternatives_fr": ["Je regrette de ne pas être venue plus tôt."],
+      "hint": "regretter de + infinitif passé"
+    },
+    {
+      "id": "st046",
+      "level": 3,
+      "french": "Après avoir mangé, nous sommes sortis.",
+      "english": "After eating, we went out.",
+      "alternatives_en": ["After having eaten, we went out."],
+      "alternatives_fr": ["Après avoir mangé, nous sommes sorties."],
+      "hint": "après + infinitif passé"
+    },
+    {
+      "id": "st047",
+      "level": 3,
+      "french": "Elle fait comme si de rien n'était.",
+      "english": "She acts as if nothing happened.",
+      "alternatives_en": ["She pretends as if nothing happened."],
+      "alternatives_fr": [],
+      "hint": "comme si + imparfait"
+    },
+    {
+      "id": "st048",
+      "level": 3,
+      "french": "À moins qu'il ne pleuve, nous irons à la plage.",
+      "english": "Unless it rains, we'll go to the beach.",
+      "alternatives_en": ["Unless it rains, we will go to the beach."],
+      "alternatives_fr": [],
+      "hint": "à moins que + subjonctif"
+    },
+    {
+      "id": "st049",
+      "level": 3,
+      "french": "Il a beau essayer, il n'y arrive pas.",
+      "english": "No matter how hard he tries, he can't do it.",
+      "alternatives_en": ["He tries in vain, he can't manage it.", "Despite trying, he can't do it."],
+      "alternatives_fr": [],
+      "hint": "avoir beau + infinitif"
+    },
+    {
+      "id": "st050",
+      "level": 3,
+      "french": "C'est en forgeant qu'on devient forgeron.",
+      "english": "Practice makes perfect.",
+      "alternatives_en": [],
+      "alternatives_fr": [],
+      "hint": "proverbe — c'est en + gérondif"
+    }
+  ]
+}

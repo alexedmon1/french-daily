@@ -23,9 +23,10 @@ from textual.widgets import Button, Footer, Header, Input, Label, ProgressBar, S
 from srs_core import SRSStats, load_stats, save_stats, normalize_input
 from exercise_types import (
     Exercise, load_all_due, get_due_counts,
-    load_vocab_due, load_conjugation_due, load_grammar_due,
+    load_vocab_due, load_conjugation_due, load_grammar_due, load_sentence_due,
     get_conjugation_due_by_tense,
     FLASHCARD_STATS_FILE, CONJUGATION_STATS_FILE, GRAMMAR_STATS_FILE,
+    SENTENCE_STATS_FILE,
 )
 
 # ----------------------------------------------------------------------
@@ -68,6 +69,7 @@ TYPE_COLORS = {
     "Vocabulary": "cyan",
     "Conjugation": "magenta",
     "Grammar": "yellow",
+    "Sentence": "green",
 }
 
 
@@ -290,6 +292,7 @@ class DashboardScreen(Screen):
         Binding("2", "mode_vocab", "Vocabulary"),
         Binding("3", "mode_conjugation", "Conjugation"),
         Binding("4", "mode_grammar", "Grammar"),
+        Binding("5", "mode_sentence", "Sentences"),
         Binding("q", "quit_app", "Quit"),
     ]
 
@@ -304,6 +307,7 @@ class DashboardScreen(Screen):
                     yield Button("2  Vocabulary\n   Flashcard review", id="btn-vocab", variant="default", classes="mode-btn")
                     yield Button("3  Conjugation\n   Verb conjugations", id="btn-conj", variant="default", classes="mode-btn")
                     yield Button("4  Grammar\n   Fill-in-the-blank", id="btn-gram", variant="default", classes="mode-btn")
+                    yield Button("5  Sentences\n   Translation practice", id="btn-sent", variant="default", classes="mode-btn")
                 with Center(id="quit-row"):
                     yield Button("Quit (q)", id="btn-quit", variant="error")
         yield Footer()
@@ -326,6 +330,7 @@ class DashboardScreen(Screen):
         self.query_one("#btn-vocab", Button).label = f"2  Vocabulary       {counts['Vocabulary']} due\n   Flashcard review"
         self.query_one("#btn-conj", Button).label = f"3  Conjugation      {counts['Conjugation']} due\n   Verb conjugations"
         self.query_one("#btn-gram", Button).label = f"4  Grammar          {counts['Grammar']} due\n   Fill-in-the-blank"
+        self.query_one("#btn-sent", Button).label = f"5  Sentences        {counts['Sentence']} due\n   Translation practice"
 
     def action_mode_mix(self) -> None:
         self.app.push_screen(ExerciseScreen(mode="mix"))
@@ -338,6 +343,9 @@ class DashboardScreen(Screen):
 
     def action_mode_grammar(self) -> None:
         self.app.push_screen(ExerciseScreen(mode="grammar"))
+
+    def action_mode_sentence(self) -> None:
+        self.app.push_screen(ExerciseScreen(mode="sentence"))
 
     def action_quit_app(self) -> None:
         self.app.exit()
@@ -357,6 +365,10 @@ class DashboardScreen(Screen):
     @on(Button.Pressed, "#btn-gram")
     def on_gram(self) -> None:
         self.action_mode_grammar()
+
+    @on(Button.Pressed, "#btn-sent")
+    def on_sent(self) -> None:
+        self.action_mode_sentence()
 
     @on(Button.Pressed, "#btn-quit")
     def on_quit(self) -> None:
@@ -477,6 +489,8 @@ class ExerciseScreen(Screen):
             self.exercises = load_conjugation_due(tense_filter=self.tense_filter)
         elif self.mode == "grammar":
             self.exercises = load_grammar_due()
+        elif self.mode == "sentence":
+            self.exercises = load_sentence_due()
         else:
             self.exercises = load_all_due()
 
@@ -487,7 +501,7 @@ class ExerciseScreen(Screen):
             return
 
         # Pre-load all stats files we'll need
-        for stats_file in {FLASHCARD_STATS_FILE, CONJUGATION_STATS_FILE, GRAMMAR_STATS_FILE}:
+        for stats_file in {FLASHCARD_STATS_FILE, CONJUGATION_STATS_FILE, GRAMMAR_STATS_FILE, SENTENCE_STATS_FILE}:
             self._all_stats[stats_file] = load_stats(stats_file)
 
         self.session_start = time.monotonic()
@@ -520,10 +534,10 @@ class ExerciseScreen(Screen):
         self.query_one("#feedback-label", Label).update("")
         self.query_one("#hint-label", Label).update("")
 
-        # Show direction hint for vocabulary
+        # Show direction hint for vocabulary and sentence exercises
         direction_label = self.query_one("#direction-label", Label)
-        if ex.type_name == "Vocabulary":
-            arrow = "French -> English" if ex.direction == "english" else "English -> French"
+        if ex.type_name in ("Vocabulary", "Sentence") and hasattr(ex, "direction"):
+            arrow = "FR -> EN" if ex.direction == "english" else "EN -> FR"
             direction_label.update(f"[dim]{arrow}[/]")
         else:
             direction_label.update("")
@@ -587,9 +601,15 @@ class ExerciseScreen(Screen):
         # Show feedback
         feedback = self.query_one("#feedback-label", Label)
         if correct:
-            feedback.update(f"[bold green]Correct![/]\nYou wrote: [italic]{user_input}[/]\nAnswer: {ex.get_correct()}")
+            feedback_text = f"[bold green]Correct![/]\nYou wrote: [italic]{user_input}[/]\nAnswer: {ex.get_correct()}"
         else:
-            feedback.update(f"[bold red]Incorrect.[/]\nYou wrote: [italic]{user_input}[/]\nCorrect: {ex.get_correct()}")
+            feedback_text = f"[bold red]Incorrect.[/]\nYou wrote: [italic]{user_input}[/]\nCorrect: {ex.get_correct()}"
+
+        # Append example sentence for vocabulary exercises
+        if hasattr(ex, "get_example") and (example := ex.get_example()):
+            feedback_text += f"\n[dim italic]Example: {example[0]}[/]\n[dim]{example[1]}[/]"
+
+        feedback.update(feedback_text)
 
         # Update progress bar
         pbar = self.query_one("#exercise-progress", ProgressBar)
@@ -668,7 +688,7 @@ class SummaryScreen(Screen):
         lines.append(f"  Correct:   {correct}/{total} ({accuracy:.0f}%)")
         lines.append("")
 
-        for type_name in ["Vocabulary", "Conjugation", "Grammar"]:
+        for type_name in ["Vocabulary", "Conjugation", "Grammar", "Sentence"]:
             if type_name in type_stats:
                 ts = type_stats[type_name]
                 color = TYPE_COLORS.get(type_name, "white")

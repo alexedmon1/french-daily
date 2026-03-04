@@ -65,8 +65,20 @@ PRONOUN_VARIATIONS = [
 # Standard pronouns for display
 PRONOUNS = ["je", "tu", "il/elle/on", "nous", "vous", "ils/elles"]
 
-# Reflexive pronoun prefixes
+# Reflexive pronoun prefixes (without elision)
 REFLEXIVE_PRONOUNS = ["me ", "te ", "se ", "nous ", "vous ", "se "]
+
+# Vowels and h for elision check
+_ELISION_CHARS = set("aeéèêëiîïoôuùûüyh")
+
+
+def reflexive_prefix(pronoun_idx: int, form: str) -> str:
+    """Return the reflexive pronoun prefix with elision if needed."""
+    base = REFLEXIVE_PRONOUNS[pronoun_idx]  # e.g. "me ", "se "
+    if form and form[0].lower() in _ELISION_CHARS and base not in ("nous ", "vous "):
+        # me -> m', te -> t', se -> s'
+        return base[0] + "'"
+    return base
 
 
 # ----------------------------------------------------------------------
@@ -343,8 +355,8 @@ def conjugate_passe_compose(infinitive: str, verb_data: dict,
         agreed_participle = apply_participle_agreement(participle, pronoun, auxiliary)
 
         if is_reflexive:
-            # Reflexive: je me suis assis
-            result.append(f"{REFLEXIVE_PRONOUNS[i]}{aux_forms[i]} {agreed_participle}")
+            # Reflexive: je me suis assis(e)
+            result.append(f"{reflexive_prefix(i, aux_forms[i])}{aux_forms[i]} {agreed_participle}")
         else:
             result.append(f"{aux_forms[i]} {agreed_participle}")
 
@@ -381,19 +393,34 @@ def conjugate(infinitive: str, tense: str,
     if selected_pronouns is None:
         selected_pronouns = get_random_pronouns()
 
+    is_reflexive = verb_data.get("reflexive", False)
+
+    # Strip reflexive prefix for conjugation (se sentir -> sentir)
+    bare_infinitive = infinitive
+    if is_reflexive:
+        if infinitive.startswith("se "):
+            bare_infinitive = infinitive[3:]
+        elif infinitive.startswith("s'"):
+            bare_infinitive = infinitive[2:]
+
     # Generate conjugation based on tense
+    # Note: passé composé handles reflexive pronouns internally
     if tense == "present":
-        forms = conjugate_present(infinitive, verb_data)
+        forms = conjugate_present(bare_infinitive, verb_data)
     elif tense == "future":
-        forms = conjugate_future(infinitive, verb_data)
+        forms = conjugate_future(bare_infinitive, verb_data)
     elif tense == "imparfait":
-        forms = conjugate_imparfait(infinitive, verb_data)
+        forms = conjugate_imparfait(bare_infinitive, verb_data)
     elif tense == "past":
-        forms = conjugate_passe_compose(infinitive, verb_data, selected_pronouns)
+        forms = conjugate_passe_compose(bare_infinitive, verb_data, selected_pronouns)
     elif tense == "conditional":
-        forms = conjugate_conditional(infinitive, verb_data)
+        forms = conjugate_conditional(bare_infinitive, verb_data)
     else:
         raise ValueError(f"Unknown tense: {tense}")
+
+    # Add reflexive pronouns for non-passé-composé tenses
+    if is_reflexive and tense != "past":
+        forms = [reflexive_prefix(i, form) + form for i, form in enumerate(forms)]
 
     return selected_pronouns, forms
 

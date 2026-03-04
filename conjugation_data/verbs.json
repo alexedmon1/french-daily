@@ -688,9 +688,9 @@
       "past_participle": "assis",
       "reflexive": true,
       "forms": {
-        "present": ["m'assieds", "t'assieds", "s'assied", "nous asseyons", "vous asseyez", "s'asseyent"],
-        "future": ["m'assiérai", "t'assiéras", "s'assiéra", "nous assiérons", "vous assiérez", "s'assiéront"],
-        "imparfait": ["m'asseyais", "t'asseyais", "s'asseyait", "nous asseyions", "vous asseyiez", "s'asseyaient"]
+        "present": ["assieds", "assieds", "assied", "asseyons", "asseyez", "asseyent"],
+        "future": ["assiérai", "assiéras", "assiéra", "assiérons", "assiérez", "assiéront"],
+        "imparfait": ["asseyais", "asseyais", "asseyait", "asseyions", "asseyiez", "asseyaient"]
       }
     },
     "se sentir": {
@@ -704,7 +704,7 @@
         "imparfait": "sent"
       },
       "forms": {
-        "present": ["me sens", "te sens", "se sent", "nous sentons", "vous sentez", "se sentent"]
+        "present": ["sens", "sens", "sent", "sentons", "sentez", "sentent"]
       }
     },
     "se quitter": {
@@ -715,7 +715,7 @@
       "past_participle": "quitté",
       "reflexive": true,
       "forms": {
-        "present": ["me quitte", "te quittes", "se quitte", "nous quittons", "vous quittez", "se quittent"]
+        "present": ["quitte", "quittes", "quitte", "quittons", "quittez", "quittent"]
       }
     },
     "obtenir": {

@@ -18,6 +18,17 @@ from pathlib import Path
 
 from srs_core import SRSStats, load_stats
 
+CONFIG_FILE = Path("daily_trainer_config.json")
+
+
+def _load_excluded_categories() -> set[str]:
+    """Load excluded vocabulary categories from config file."""
+    if not CONFIG_FILE.is_file():
+        return set()
+    with CONFIG_FILE.open(encoding="utf-8") as f:
+        config = json.load(f)
+    return set(config.get("excluded_categories", []))
+
 
 # ----------------------------------------------------------------------
 # Exercise ABC
@@ -98,7 +109,8 @@ class VocabularyExercise(Exercise):
 
     def __init__(self, french: str, english: str, french_variants: list[str],
                  english_variants: list[str], french_synonyms: list[str],
-                 direction: str, key: str):
+                 direction: str, key: str,
+                 example_sentence: dict | None = None):
         self.french = french
         self.english = english
         self.french_variants = french_variants
@@ -106,6 +118,14 @@ class VocabularyExercise(Exercise):
         self.french_synonyms = french_synonyms
         self.direction = direction  # "french" or "english"
         self.key = key
+        self.example_sentence = example_sentence
+
+    def get_example(self) -> tuple[str, str] | None:
+        """Return (sentence, translation) if an example is available."""
+        if self.example_sentence:
+            return (self.example_sentence["sentence"],
+                    self.example_sentence["translation"])
+        return None
 
     def get_prompt(self) -> str:
         if self.direction == "english":
@@ -207,6 +227,43 @@ class GrammarExercise(Exercise):
 
 
 # ----------------------------------------------------------------------
+# Sentence Translation Exercise
+# ----------------------------------------------------------------------
+SENTENCE_STATS_FILE = Path(".sentence_data/sentence_stats.json")
+
+
+class SentenceExercise(Exercise):
+    type_name = "Sentence"
+    stats_file = SENTENCE_STATS_FILE
+
+    def __init__(self, sentence_data: dict, direction: str, key: str):
+        self.data = sentence_data
+        self.direction = direction  # "english" or "french"
+        self.key = key
+
+    def get_prompt(self) -> str:
+        if self.direction == "english":
+            return f"Translate to English:\n{self.data['french']}"
+        return f"Translate to French:\n{self.data['english']}"
+
+    def get_correct(self) -> str:
+        if self.direction == "english":
+            return self.data["english"]
+        return self.data["french"]
+
+    def check(self, user_input: str) -> bool:
+        user = user_input.strip().lower()
+        if self.direction == "english":
+            variants = [self.data["english"]] + self.data.get("alternatives_en", [])
+        else:
+            variants = [self.data["french"]] + self.data.get("alternatives_fr", [])
+        return _fuzzy_match(user, variants, threshold=0.80)
+
+    def get_hint(self) -> str | None:
+        return self.data.get("hint")
+
+
+# ----------------------------------------------------------------------
 # Factory: load all due exercises
 # ----------------------------------------------------------------------
 def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
@@ -215,7 +272,15 @@ def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
     if not csv_path.is_file():
         return [], {}
 
+    # Load example sentences
+    examples_path = Path("example_sentences.json")
+    examples: dict = {}
+    if examples_path.is_file():
+        with examples_path.open(encoding="utf-8") as f:
+            examples = json.load(f)
+
     stats = load_stats(FLASHCARD_STATS_FILE)
+    excluded = _load_excluded_categories()
 
     # Read cards from CSV
     cards = []
@@ -223,6 +288,9 @@ def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
         reader = csv.reader(f)
         for row in reader:
             if len(row) >= 2:
+                category = row[2].strip() if len(row) >= 3 else ""
+                if category in excluded:
+                    continue
                 french = row[0]
                 english = row[1]
                 french_variants = [v.strip() for v in french.split("|")]
@@ -262,6 +330,9 @@ def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
                 if fr not in card["french_variants"]:
                     synonyms.add(fr)
 
+        # Look up example sentence by lowercase French word
+        example = examples.get(card["french"].lower())
+
         direction = random.choice(["english", "french"])
         exercises.append(VocabularyExercise(
             french=card["french"],
@@ -271,6 +342,7 @@ def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
             french_synonyms=list(synonyms),
             direction=direction,
             key=key,
+            example_sentence=example,
         ))
 
     return exercises, stats
@@ -345,6 +417,36 @@ def _load_grammar_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
             exercises.append(GrammarExercise(
                 exercise_data=ex,
                 topic_name=topic_name,
+                key=key,
+            ))
+
+    return exercises, stats
+
+
+def _load_sentence_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
+    """Load sentence translation exercises and return exercises + their stats."""
+    sentence_dir = Path("sentence_data")
+    if not sentence_dir.exists():
+        return [], {}
+
+    stats = load_stats(SENTENCE_STATS_FILE)
+    today = date.today().isoformat()
+
+    exercises = []
+    for json_path in sorted(sentence_dir.glob("*.json")):
+        with json_path.open(encoding="utf-8") as f:
+            topic_data = json.load(f)
+
+        for sent in topic_data.get("sentences", []):
+            key = f"sentence|{sent['id']}"
+            stat = stats.get(key)
+            if stat and stat.due_date > today:
+                continue
+
+            direction = random.choice(["english", "french"])
+            exercises.append(SentenceExercise(
+                sentence_data=sent,
+                direction=direction,
                 key=key,
             ))
 
@@ -431,6 +533,7 @@ def load_all_due(max_items: int = 60, max_new: int = 10) -> list[Exercise]:
         ("Vocabulary", _load_vocab_exercises),
         ("Conjugation", _load_conjugation_exercises),
         ("Grammar", _load_grammar_exercises),
+        ("Sentence", _load_sentence_exercises),
     ]:
         exercises, stats = loader()
         type_pools[name] = (exercises, stats)
@@ -498,6 +601,14 @@ def load_grammar_due(max_items: int = 60) -> list[Exercise]:
     return result
 
 
+def load_sentence_due(max_items: int = 60) -> list[Exercise]:
+    """Load due sentence translation exercises for focused practice."""
+    exercises, stats = _load_sentence_exercises()
+    result = _prioritize_and_cap(exercises, stats, max_items)
+    random.shuffle(result)
+    return result
+
+
 def get_conjugation_due_by_tense() -> dict[str, int]:
     """Get count of due conjugation exercises broken down by tense."""
     verb_data_path = Path("conjugation_data/verbs.json")
@@ -523,16 +634,20 @@ def get_conjugation_due_by_tense() -> dict[str, int]:
 def get_due_counts() -> dict[str, int]:
     """Get count of due items per type without building full exercise objects."""
     today = date.today().isoformat()
-    counts = {"Vocabulary": 0, "Conjugation": 0, "Grammar": 0}
+    counts = {"Vocabulary": 0, "Conjugation": 0, "Grammar": 0, "Sentence": 0}
 
     # Vocabulary
     csv_path = Path("master_vocabulary.csv")
     if csv_path.is_file():
+        excluded = _load_excluded_categories()
         stats = load_stats(FLASHCARD_STATS_FILE)
         with csv_path.open(newline="", encoding="utf-8") as f:
             reader = csv.reader(f)
             for row in reader:
                 if len(row) >= 2:
+                    category = row[2].strip() if len(row) >= 3 else ""
+                    if category in excluded:
+                        continue
                     french_variants = [v.strip() for v in row[0].split("|")]
                     english_variants = [v.strip() for v in row[1].split("|")]
                     key = f"{french_variants[0]}|{english_variants[0]}"
@@ -565,5 +680,18 @@ def get_due_counts() -> dict[str, int]:
                 stat = stats.get(key)
                 if stat is None or stat.due_date <= today:
                     counts["Grammar"] += 1
+
+    # Sentence
+    sentence_dir = Path("sentence_data")
+    if sentence_dir.exists():
+        stats = load_stats(SENTENCE_STATS_FILE)
+        for json_path in sentence_dir.glob("*.json"):
+            with json_path.open(encoding="utf-8") as f:
+                topic_data = json.load(f)
+            for sent in topic_data.get("sentences", []):
+                key = f"sentence|{sent['id']}"
+                stat = stats.get(key)
+                if stat is None or stat.due_date <= today:
+                    counts["Sentence"] += 1
 
     return counts
