@@ -16,7 +16,8 @@
       "alternatives": ["n'"],
       "hint": "Première partie de la négation standard",
       "explanation": "La négation standard 'ne...pas' entoure le verbe. Je NE comprends PAS.",
-      "translation": "I don't understand."
+      "translation": "I don't understand.",
+      "context": "I don't understand."
     },
     {
       "id": "neg002",
@@ -27,7 +28,8 @@
       "alternatives": [],
       "hint": "Négation standard — deuxième partie",
       "explanation": "'Ne...pas' est la négation de base. Elle ne mange PAS.",
-      "translation": "She doesn't eat."
+      "translation": "She doesn't eat.",
+      "context": "She doesn't eat."
     },
     {
       "id": "neg003",
@@ -50,7 +52,8 @@
       "alternatives": [],
       "hint": "= zéro choses",
       "explanation": "'Ne...rien' nie toute chose. Je ne veux RIEN = I want nothing.",
-      "translation": "I don't want anything."
+      "translation": "I don't want anything.",
+      "context": "I don't want anything."
     },
     {
       "id": "neg005",
@@ -61,7 +64,8 @@
       "alternatives": [],
       "hint": "= à aucun moment, zéro fois",
       "explanation": "'Ne...jamais' nie la fréquence. Nous n'avons JAMAIS mangé ici.",
-      "translation": "We have never eaten here."
+      "translation": "We have never eaten here.",
+      "context": "We have never eaten here."
     },
     {
       "id": "neg006",
@@ -84,7 +88,8 @@
       "alternatives": [],
       "hint": "= à aucun moment",
       "explanation": "'Ne...jamais' = never. Elle ne sort JAMAIS le soir.",
-      "translation": "She never goes out in the evening."
+      "translation": "She never goes out in the evening.",
+      "context": "She never goes out in the evening."
     },
     {
       "id": "neg008",
@@ -95,7 +100,8 @@
       "alternatives": ["ne"],
       "hint": "Élision devant une voyelle",
       "explanation": "'Ne' devient 'n'' devant une voyelle. Je N'ai plus faim.",
-      "translation": "I'm not hungry anymore."
+      "translation": "I'm not hungry anymore.",
+      "context": "I'm not hungry anymore."
     },
     {
       "id": "neg009",
@@ -106,7 +112,8 @@
       "alternatives": [],
       "hint": "Négation simple du verbe",
       "explanation": "'Ne...pas' est la négation de base. Il ne pleut PAS.",
-      "translation": "It's not raining."
+      "translation": "It's not raining.",
+      "context": "It's not raining."
     },
     {
       "id": "neg010",
@@ -117,7 +124,8 @@
       "alternatives": [],
       "hint": "= à aucun moment, c'est une habitude",
       "explanation": "'Ne...jamais' pour une habitude négative absolue.",
-      "translation": "They never work on Sundays."
+      "translation": "They never work on Sundays.",
+      "context": "They never work on Sundays."
     },
     {
       "id": "neg011",
@@ -128,7 +136,8 @@
       "alternatives": [],
       "hint": "Le frigo est complètement vide",
       "explanation": "'Ne...rien' = nothing. Il n'y a RIEN dans le frigo.",
-      "translation": "There's nothing in the fridge."
+      "translation": "There's nothing in the fridge.",
+      "context": "There's nothing in the fridge."
     },
     {
       "id": "neg012",
@@ -151,7 +160,8 @@
       "alternatives": [],
       "hint": "Négation au passé composé — entre l'auxiliaire et le participe",
       "explanation": "Au passé composé, 'pas' se place entre l'auxiliaire et le participe passé.",
-      "translation": "I didn't understand."
+      "translation": "I didn't understand.",
+      "context": "I didn't understand."
     },
     {
       "id": "neg014",
@@ -162,7 +172,8 @@
       "alternatives": [],
       "hint": "= zéro paroles, au passé composé",
       "explanation": "Au passé composé, 'rien' se place entre l'auxiliaire et le participe. Elle n'a RIEN dit.",
-      "translation": "She didn't say anything."
+      "translation": "She didn't say anything.",
+      "context": "She didn't say anything."
     },
     {
       "id": "neg015",
@@ -173,7 +184,8 @@
       "alternatives": [],
       "hint": "Négation standard au passé composé",
       "explanation": "Au passé composé: sujet + ne + auxiliaire + pas + participe passé.",
-      "translation": "We haven't finished."
+      "translation": "We haven't finished.",
+      "context": "We haven't finished."
     },
     {
       "id": "neg016",
@@ -184,7 +196,8 @@
       "alternatives": [],
       "hint": "= zéro fois dans ta vie",
       "explanation": "Au passé composé, 'jamais' se place entre l'auxiliaire et le participe.",
-      "translation": "You've never traveled to Asia."
+      "translation": "You've never traveled to Asia.",
+      "context": "You've never traveled to Asia."
     },
     {
       "id": "neg017",
@@ -207,7 +220,8 @@
       "alternatives": ["personne"],
       "hint": "= zéro personnes (sujet de la phrase)",
       "explanation": "'Personne ne...' quand personne est sujet. PERSONNE ne m'écoute !",
-      "translation": "Nobody listens to me!"
+      "translation": "Nobody listens to me!",
+      "context": "Nobody listens to me!"
     },
     {
       "id": "neg019",
@@ -218,7 +232,8 @@
       "alternatives": ["rien"],
       "hint": "= zéro choses (sujet de la phrase)",
       "explanation": "'Rien ne...' quand rien est sujet. RIEN n'est parfait.",
-      "translation": "Nothing is perfect."
+      "translation": "Nothing is perfect.",
+      "context": "Nothing is perfect."
     },
     {
       "id": "neg020",
@@ -229,7 +244,8 @@
       "alternatives": [],
       "hint": "= zéro personnes",
       "explanation": "'Ne...personne' nie les personnes. Je ne connais PERSONNE ici.",
-      "translation": "I don't know anyone here."
+      "translation": "I don't know anyone here.",
+      "context": "I don't know anyone here."
     },
     {
       "id": "neg021",
@@ -240,7 +256,8 @@
       "alternatives": [],
       "hint": "= pas une seule (féminin car 'idée')",
       "explanation": "'Ne...aucun(e)' = not a single one. Féminin car 'idée' est féminin.",
-      "translation": "He has no idea."
+      "translation": "He has no idea.",
+      "context": "He has no idea."
     },
     {
       "id": "neg022",
@@ -251,7 +268,8 @@
       "alternatives": [],
       "hint": "= zéro personnes (au passé composé, après le participe)",
       "explanation": "'Personne' se place APRÈS le participe passé (contrairement à 'rien').",
-      "translation": "She didn't see anyone."
+      "translation": "She didn't see anyone.",
+      "context": "She didn't see anyone."
     },
     {
       "id": "neg023",
@@ -262,7 +280,8 @@
       "alternatives": [],
       "hint": "= à aucun endroit",
       "explanation": "'Ne...nulle part' nie le lieu. Je ne vais NULLE PART.",
-      "translation": "I'm not going anywhere."
+      "translation": "I'm not going anywhere.",
+      "context": "I'm not going anywhere."
     },
     {
       "id": "neg024",
@@ -273,7 +292,8 @@
       "alternatives": [],
       "hint": "= pas un seul (masculin car 'problème')",
       "explanation": "'Ne...aucun' = not a single one. Masculin car 'problème' est masculin.",
-      "translation": "There's no problem."
+      "translation": "There's no problem.",
+      "context": "There's no problem."
     },
     {
       "id": "neg025",
@@ -284,7 +304,8 @@
       "alternatives": [],
       "hint": "= seulement",
       "explanation": "'Ne...que' = only/nothing but. C'est une restriction, pas une vraie négation.",
-      "translation": "She only eats vegetables."
+      "translation": "She only eats vegetables.",
+      "context": "She only eats vegetables."
     },
     {
       "id": "neg026",
@@ -295,7 +316,8 @@
       "alternatives": [],
       "hint": "= pas un seul (masculin car 'euro')",
       "explanation": "'Ne...aucun' insiste sur le zéro absolu. Pas un seul euro.",
-      "translation": "I don't have a single euro on me."
+      "translation": "I don't have a single euro on me.",
+      "context": "I don't have a single euro on me."
     },
     {
       "id": "neg027",
@@ -306,7 +328,8 @@
       "alternatives": [],
       "hint": "= dans aucun endroit",
       "explanation": "'Ne...nulle part' = nowhere. Nous ne trouvons ce livre NULLE PART.",
-      "translation": "We can't find this book anywhere."
+      "translation": "We can't find this book anywhere.",
+      "context": "We can't find this book anywhere."
     },
     {
       "id": "neg028",
@@ -317,7 +340,8 @@
       "alternatives": [],
       "hint": "= seulement, uniquement",
       "explanation": "'Ne...que' = only. Je ne bois QUE de l'eau = I only drink water.",
-      "translation": "I only drink water."
+      "translation": "I only drink water.",
+      "context": "I only drink water."
     },
     {
       "id": "neg029",
@@ -328,7 +352,8 @@
       "alternatives": [],
       "hint": "= zéro amis, zéro personnes",
       "explanation": "'Ne...personne' = nobody. Tu ne vois PERSONNE le week-end ?",
-      "translation": "You don't see anyone on weekends?"
+      "translation": "You don't see anyone on weekends?",
+      "context": "You don't see anyone on weekends?"
     },
     {
       "id": "neg030",
@@ -339,7 +364,8 @@
       "alternatives": [],
       "hint": "= zéro chances (féminin car 'chance')",
       "explanation": "'Ne...aucune' = not a single. Féminin car 'chance' est féminin.",
-      "translation": "He has no chance of winning."
+      "translation": "He has no chance of winning.",
+      "context": "He has no chance of winning."
     },
     {
       "id": "neg031",
@@ -350,7 +376,8 @@
       "alternatives": [],
       "hint": "= seulement un jour",
       "explanation": "'Ne...que' = only. Elle ne travaille QUE le lundi.",
-      "translation": "She only works on Mondays."
+      "translation": "She only works on Mondays.",
+      "context": "She only works on Mondays."
     },
     {
       "id": "neg032",
@@ -361,7 +388,8 @@
       "alternatives": [],
       "hint": "= on reste à la maison, aucune destination",
       "explanation": "'Ne...nulle part' = nowhere. On ne va NULLE PART ce soir.",
-      "translation": "We're not going anywhere tonight."
+      "translation": "We're not going anywhere tonight.",
+      "context": "We're not going anywhere tonight."
     },
     {
       "id": "neg033",
@@ -372,7 +400,8 @@
       "alternatives": [],
       "hint": "= zéro personnes (au passé composé, après le participe)",
       "explanation": "'Personne' va après le participe passé. Je n'ai parlé à PERSONNE.",
-      "translation": "I didn't talk to anyone."
+      "translation": "I didn't talk to anyone.",
+      "context": "I didn't talk to anyone."
     },
     {
       "id": "neg034",
@@ -383,7 +412,8 @@
       "alternatives": [],
       "hint": "= seulement",
       "explanation": "'Ne...que' = only. Il ne reste QUE trois jours.",
-      "translation": "There are only three days left before the holidays."
+      "translation": "There are only three days left before the holidays.",
+      "context": "There are only three days left before the holidays."
     },
     {
       "id": "neg035",
@@ -394,7 +424,8 @@
       "alternatives": ["personne"],
       "hint": "= zéro personnes (sujet)",
       "explanation": "'Personne ne...' quand personne est sujet de la phrase.",
-      "translation": "Nobody can solve this problem."
+      "translation": "Nobody can solve this problem.",
+      "context": "Nobody can solve this problem."
     },
     {
       "id": "neg036",
@@ -405,7 +436,8 @@
       "alternatives": [],
       "hint": "= dans aucun endroit (au passé composé, après le participe)",
       "explanation": "'Nulle part' se place après le participe passé.",
-      "translation": "I couldn't find my cat anywhere."
+      "translation": "I couldn't find my cat anywhere.",
+      "context": "I couldn't find my cat anywhere."
     },
     {
       "id": "neg037",
@@ -416,7 +448,8 @@
       "alternatives": [],
       "hint": "Double négation: deux choses niées",
       "explanation": "'Ne...ni...ni' nie deux éléments. Je n'aime NI le café NI le thé.",
-      "translation": "I like neither coffee nor tea."
+      "translation": "I like neither coffee nor tea.",
+      "context": "I like neither coffee nor tea."
     },
     {
       "id": "neg038",
@@ -427,7 +460,8 @@
       "alternatives": [],
       "hint": "Deuxième partie de ni...ni",
       "explanation": "'Ne...ni...ni' = neither...nor. Elle ne parle ni français NI anglais.",
-      "translation": "She speaks neither French nor English."
+      "translation": "She speaks neither French nor English.",
+      "context": "She speaks neither French nor English."
     },
     {
       "id": "neg039",
@@ -438,7 +472,8 @@
       "alternatives": [],
       "hint": "= 'moi aussi' mais en négatif",
       "explanation": "'Non plus' = neither/not either. C'est l'équivalent négatif de 'aussi'.",
-      "translation": "I don't like coffee. — Me neither."
+      "translation": "I don't like coffee. — Me neither.",
+      "context": "I don't like coffee. — Me neither."
     },
     {
       "id": "neg040",
@@ -449,7 +484,8 @@
       "alternatives": [],
       "hint": "Deuxième élément nié",
       "explanation": "'Ne...ni...ni' avec des infinitifs. Il ne sait NI lire NI écrire.",
-      "translation": "He can neither read nor write."
+      "translation": "He can neither read nor write.",
+      "context": "He can neither read nor write."
     },
     {
       "id": "neg041",
@@ -460,7 +496,8 @@
       "alternatives": [],
       "hint": "Accord négatif = l'équivalent de 'aussi' en négatif",
       "explanation": "'Non plus' exprime l'accord avec une phrase négative. Lui NON PLUS.",
-      "translation": "She doesn't want to come. — Him neither."
+      "translation": "She doesn't want to come. — Him neither.",
+      "context": "She doesn't want to come. — Him neither."
     },
     {
       "id": "neg042",
@@ -471,7 +508,8 @@
       "alternatives": [],
       "hint": "Deux sensations niées",
       "explanation": "'Ne...ni...ni' nie deux éléments. Il n'a NI faim NI soif.",
-      "translation": "He is neither hungry nor thirsty."
+      "translation": "He is neither hungry nor thirsty.",
+      "context": "He is neither hungry nor thirsty."
     },
     {
       "id": "neg043",
@@ -482,7 +520,8 @@
       "alternatives": ["boire", "sortir", "parler"],
       "hint": "Complète avec un infinitif logique",
       "explanation": "'Ne...ni...ni' peut nier deux infinitifs.",
-      "translation": "I want neither to eat nor to sleep."
+      "translation": "I want neither to eat nor to sleep.",
+      "context": "I want neither to eat nor to sleep."
     },
     {
       "id": "neg044",
@@ -493,7 +532,8 @@
       "alternatives": [],
       "hint": "Accord avec une phrase négative",
       "explanation": "'Non plus' pour exprimer l'accord avec une négation.",
-      "translation": "I have nothing left. — Me neither."
+      "translation": "I have nothing left. — Me neither.",
+      "context": "I have nothing left. — Me neither."
     },
     {
       "id": "neg045",
@@ -504,7 +544,8 @@
       "alternatives": [],
       "hint": "Deux négations combinées: fréquence + chose",
       "explanation": "On peut combiner 'jamais' et 'rien'. Il ne mange JAMAIS RIEN = He never eats anything.",
-      "translation": "He never eats anything."
+      "translation": "He never eats anything.",
+      "context": "He never eats anything."
     },
     {
       "id": "neg046",
@@ -515,7 +556,8 @@
       "alternatives": [],
       "hint": "Deux négations combinées: cessation + personnes",
       "explanation": "On peut combiner 'plus' et 'personne'. Je ne vois PLUS PERSONNE.",
-      "translation": "I don't see anyone anymore."
+      "translation": "I don't see anyone anymore.",
+      "context": "I don't see anyone anymore."
     },
     {
       "id": "neg047",
@@ -526,7 +568,8 @@
       "alternatives": [],
       "hint": "Premier 'ni' dans ne...ni...ni",
       "explanation": "'Ne...ni...ni' nie deux éléments. Elle n'a NI chat NI chien.",
-      "translation": "She has neither a cat nor a dog."
+      "translation": "She has neither a cat nor a dog.",
+      "context": "She has neither a cat nor a dog."
     },
     {
       "id": "neg048",
@@ -537,7 +580,8 @@
       "alternatives": [],
       "hint": "Deux négations combinées: cessation + lieu",
       "explanation": "On peut combiner 'plus' et 'nulle part'. Tu ne vas PLUS NULLE PART.",
-      "translation": "You don't go anywhere anymore."
+      "translation": "You don't go anywhere anymore.",
+      "context": "You don't go anywhere anymore."
     },
     {
       "id": "neg049",
@@ -548,7 +592,8 @@
       "alternatives": [],
       "hint": "Deuxième élément nié",
       "explanation": "'Ne...ni...ni' = neither...nor. Ni le temps NI l'argent.",
-      "translation": "We have neither the time nor the money to travel."
+      "translation": "We have neither the time nor the money to travel.",
+      "context": "We have neither the time nor the money to travel."
     },
     {
       "id": "neg050",
@@ -559,7 +604,8 @@
       "alternatives": [],
       "hint": "Deux négations combinées: fréquence + lieu",
       "explanation": "On peut combiner 'jamais' et 'nulle part'. Je ne vais JAMAIS NULLE PART.",
-      "translation": "I never go anywhere."
+      "translation": "I never go anywhere.",
+      "context": "I never go anywhere."
     }
   ]
 }

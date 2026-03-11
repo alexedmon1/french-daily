@@ -14,6 +14,7 @@
       "sentence_after": "un gâteau.",
       "answer": "ai fait",
       "alternatives": [],
+      "context": "verbe: faire",
       "hint": "Action complète dans le passé (hier)",
       "explanation": "Passé composé pour une action complète et ponctuelle.",
       "translation": "Yesterday, I made a cake."
@@ -25,6 +26,7 @@
       "sentence_after": "petit, j'aimais le chocolat.",
       "answer": "étais",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "Description d'un état dans le passé",
       "explanation": "Imparfait pour décrire un état ou une condition passée.",
       "translation": "When I was little, I liked chocolate."
@@ -36,6 +38,7 @@
       "sentence_after": "les yeux bleus.",
       "answer": "avait",
       "alternatives": [],
+      "context": "verbe: avoir",
       "hint": "Description physique dans le passé",
       "explanation": "Imparfait pour les descriptions physiques.",
       "translation": "She had blue eyes."
@@ -47,6 +50,7 @@
       "sentence_after": "au restaurant samedi dernier.",
       "answer": "sommes allés",
       "alternatives": ["sommes allées"],
+      "context": "verbe: aller",
       "hint": "Action ponctuelle à un moment précis",
       "explanation": "Passé composé pour une action précise et terminée.",
       "translation": "We went to the restaurant last Saturday."
@@ -58,6 +62,7 @@
       "sentence_after": "beau ce jour-là.",
       "answer": "faisait",
       "alternatives": [],
+      "context": "verbe: faire",
       "hint": "Description du temps — contexte, pas action",
       "explanation": "Imparfait pour décrire le temps qu'il faisait (contexte).",
       "translation": "The weather was nice that day."
@@ -69,6 +74,7 @@
       "sentence_after": "la lettre hier soir ?",
       "answer": "as écrit",
       "alternatives": [],
+      "context": "verbe: écrire",
       "hint": "Action complète (hier soir)",
       "explanation": "Passé composé pour une action terminée à un moment précis.",
       "translation": "Did you write the letter last night?"
@@ -80,6 +86,7 @@
       "sentence_after": "grande et blanche.",
       "answer": "était",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "Description d'un lieu dans le passé",
       "explanation": "Imparfait pour décrire l'apparence d'un lieu.",
       "translation": "The house was big and white."
@@ -91,6 +98,7 @@
       "sentence_after": "un bon livre la semaine dernière.",
       "answer": "ai lu",
       "alternatives": [],
+      "context": "verbe: lire",
       "hint": "Action complète (la semaine dernière)",
       "explanation": "Passé composé pour une action achevée.",
       "translation": "I read a good book last week."
@@ -102,6 +110,7 @@
       "sentence_after": "contents de voir leurs grands-parents.",
       "answer": "étaient",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "État émotionnel dans le passé",
       "explanation": "Imparfait pour décrire un état émotionnel.",
       "translation": "The children were happy to see their grandparents."
@@ -113,6 +122,7 @@
       "sentence_after": "son diplôme en 2020.",
       "answer": "a obtenu",
       "alternatives": [],
+      "context": "verbe: obtenir",
       "hint": "Événement ponctuel à une date précise",
       "explanation": "Passé composé pour un événement précis avec une date.",
       "translation": "She obtained her diploma in 2020."
@@ -124,6 +134,7 @@
       "sentence_after": "fatigué après le travail.",
       "answer": "était",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "État physique dans le passé",
       "explanation": "Imparfait pour décrire un état physique.",
       "translation": "He was tired after work."
@@ -135,6 +146,7 @@
       "sentence_after": "un appartement à Paris.",
       "answer": "ont acheté",
       "alternatives": [],
+      "context": "verbe: acheter",
       "hint": "Action complète et résultative",
       "explanation": "Passé composé pour une action accomplie avec un résultat.",
       "translation": "They bought an apartment in Paris."
@@ -146,6 +158,7 @@
       "sentence_after": "gris ce matin-là.",
       "answer": "était",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "Description du décor",
       "explanation": "Imparfait pour planter le décor d'une scène.",
       "translation": "The sky was gray that morning."
@@ -157,6 +170,7 @@
       "sentence_after": "la porte et elle est sortie.",
       "answer": "a ouvert",
       "alternatives": [],
+      "context": "verbe: ouvrir",
       "hint": "Action ponctuelle dans une séquence",
       "explanation": "Passé composé pour des actions successives.",
       "translation": "Marie opened the door and went out."
@@ -168,6 +182,7 @@
       "sentence_after": "pas la réponse.",
       "answer": "savais",
       "alternatives": ["connaissais"],
+      "context": "verbe: savoir",
       "hint": "État mental dans le passé",
       "explanation": "Imparfait pour un état mental (savoir, connaître, penser).",
       "translation": "I didn't know the answer."
@@ -179,6 +194,7 @@
       "sentence_after": ", le téléphone a sonné.",
       "answer": "mangeais",
       "alternatives": [],
+      "context": "verbe: manger",
       "hint": "'Pendant que' + action en cours interrompue",
       "explanation": "Imparfait pour l'action en cours, passé composé pour l'interruption.",
       "translation": "While I was eating, the phone rang."
@@ -190,6 +206,7 @@
       "sentence_after": "chez nos grands-parents.",
       "answer": "allions",
       "alternatives": [],
+      "context": "verbe: aller",
       "hint": "'Tous les étés' = habitude dans le passé",
       "explanation": "Imparfait pour une habitude répétée dans le passé.",
       "translation": "Every summer, we used to go to our grandparents'."
@@ -201,6 +218,7 @@
       "sentence_after": "un bruit étrange.",
       "answer": "a entendu",
       "alternatives": [],
+      "context": "verbe: entendre",
       "hint": "'Soudain' = action soudaine, ponctuelle",
       "explanation": "'Soudain' marque un événement brusque → passé composé.",
       "translation": "Suddenly, he heard a strange noise."
@@ -212,6 +230,7 @@
       "sentence_after": "à 7 heures.",
       "answer": "se levait",
       "alternatives": [],
+      "context": "verbe: se lever",
       "hint": "'D'habitude' = habitude passée",
       "explanation": "Imparfait pour une habitude passée avec 'd'habitude'.",
       "translation": "Usually, she used to get up at 7 o'clock."
@@ -223,6 +242,7 @@
       "sentence_after": "quand nous sommes partis.",
       "answer": "pleuvait",
       "alternatives": [],
+      "context": "verbe: pleuvoir",
       "hint": "Action en cours au moment d'un événement",
       "explanation": "Imparfait pour le contexte en cours, passé composé pour l'événement.",
       "translation": "It was raining when we left."
@@ -234,6 +254,7 @@
       "sentence_after": "pour la première fois.",
       "answer": "ai voyagé",
       "alternatives": [],
+      "context": "verbe: voyager",
       "hint": "'Pour la première fois' = événement unique",
       "explanation": "Passé composé pour un événement qui se produit une seule fois.",
       "translation": "That day, I traveled for the first time."
@@ -245,6 +266,7 @@
       "sentence_after": "beaucoup de bonbons.",
       "answer": "mangeais",
       "alternatives": [],
+      "context": "verbe: manger",
       "hint": "'Avant' = habitude dans le passé",
       "explanation": "'Avant' indique une habitude passée → imparfait.",
       "translation": "Before, I used to eat a lot of candy."
@@ -256,6 +278,7 @@
       "sentence_after": ".",
       "answer": "s'est éteinte",
       "alternatives": [],
+      "context": "verbe: s'éteindre",
       "hint": "'Tout à coup' = événement soudain",
       "explanation": "'Tout à coup' marque un événement soudain → passé composé.",
       "translation": "Suddenly, the light went out."
@@ -267,6 +290,7 @@
       "sentence_after": "son café en lisant le journal.",
       "answer": "prenait",
       "alternatives": ["buvait"],
+      "context": "verbe: prendre",
       "hint": "'Chaque matin' = routine passée",
       "explanation": "Imparfait pour une habitude régulière dans le passé.",
       "translation": "Every morning, he used to have his coffee while reading the newspaper."
@@ -278,6 +302,7 @@
       "sentence_after": ", les enfants jouaient dehors.",
       "answer": "travaillions",
       "alternatives": [],
+      "context": "verbe: travailler",
       "hint": "'Pendant que' + deux actions simultanées en cours",
       "explanation": "Imparfait pour deux actions simultanées en cours.",
       "translation": "While we were working, the children were playing outside."
@@ -289,6 +314,7 @@
       "sentence_after": "de pleurer.",
       "answer": "a commencé",
       "alternatives": [],
+      "context": "verbe: commencer",
       "hint": "'À ce moment-là' = événement précis",
       "explanation": "Passé composé pour un événement qui démarre à un moment précis.",
       "translation": "At that moment, she started to cry."
@@ -300,6 +326,7 @@
       "sentence_after": "sans électricité.",
       "answer": "vivaient",
       "alternatives": [],
+      "context": "verbe: vivre",
       "hint": "'Autrefois' = époque passée, habitude",
       "explanation": "Imparfait avec 'autrefois' pour décrire une époque révolue.",
       "translation": "In the past, people used to live without electricity."
@@ -311,6 +338,7 @@
       "sentence_after": "la télé quand quelqu'un a frappé à la porte.",
       "answer": "regardais",
       "alternatives": [],
+      "context": "verbe: regarder",
       "hint": "Action en cours interrompue par un événement",
       "explanation": "Imparfait pour l'action en cours, interrompue par une action au passé composé.",
       "translation": "I was watching TV when someone knocked at the door."
@@ -322,6 +350,7 @@
       "sentence_after": "en France pour la première fois.",
       "answer": "sommes allés",
       "alternatives": ["sommes allées"],
+      "context": "verbe: aller",
       "hint": "Date précise + événement unique",
       "explanation": "Passé composé pour un événement situé à une date précise.",
       "translation": "In 2015, we went to France for the first time."
@@ -333,6 +362,7 @@
       "sentence_after": "au parc avec son chien.",
       "answer": "allait",
       "alternatives": [],
+      "context": "verbe: aller",
       "hint": "'Souvent' = habitude dans le passé",
       "explanation": "Imparfait pour une habitude fréquente dans le passé.",
       "translation": "Often, she used to go to the park with her dog."
@@ -344,6 +374,7 @@
       "sentence_after": "nuit quand nous sommes arrivés à la maison.",
       "answer": "faisait",
       "alternatives": [],
+      "context": "verbe: faire",
       "hint": "Contexte (décor) au moment d'un événement",
       "explanation": "Imparfait pour le décor, passé composé pour l'événement principal.",
       "translation": "It was dark when we arrived home."
@@ -355,6 +386,7 @@
       "sentence_after": "dans la rue quand j'ai vu mon ancien professeur.",
       "answer": "marchais",
       "alternatives": ["me promenais"],
+      "context": "verbe: marcher",
       "hint": "Action en cours comme arrière-plan",
       "explanation": "Imparfait pour l'action de fond, passé composé pour l'événement soudain.",
       "translation": "I was walking in the street when I saw my former teacher."
@@ -366,6 +398,7 @@
       "sentence_after": "ensemble pendant dix ans, puis ils ont divorcé.",
       "answer": "ont vécu",
       "alternatives": [],
+      "context": "verbe: vivre",
       "hint": "Durée définie avec un point final",
       "explanation": "Passé composé pour une action avec une durée délimitée et terminée.",
       "translation": "They lived together for ten years, then they divorced."
@@ -377,6 +410,7 @@
       "sentence_after": "jeune, il voulait être astronaute.",
       "answer": "était",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "État dans le passé (jeunesse)",
       "explanation": "Imparfait pour un état prolongé dans le passé.",
       "translation": "When he was young, he wanted to be an astronaut."
@@ -388,6 +422,7 @@
       "sentence_after": "sa valise et elle est partie.",
       "answer": "a préparé",
       "alternatives": [],
+      "context": "verbe: préparer",
       "hint": "Séquence d'actions ponctuelles",
       "explanation": "Passé composé pour une suite d'actions successives.",
       "translation": "That morning, she packed her suitcase and left."
@@ -399,6 +434,7 @@
       "sentence_after": "qu'il était honnête, mais j'avais tort.",
       "answer": "pensais",
       "alternatives": ["croyais"],
+      "context": "verbe: penser",
       "hint": "Opinion/croyance passée (état mental)",
       "explanation": "Imparfait pour une opinion ou croyance qui durait dans le passé.",
       "translation": "I thought he was honest, but I was wrong."
@@ -410,6 +446,7 @@
       "sentence_after": "la vérité pour la première fois.",
       "answer": "a dit",
       "alternatives": [],
+      "context": "verbe: dire",
       "hint": "Événement unique et ponctuel",
       "explanation": "Passé composé pour un événement unique qui marque un changement.",
       "translation": "That day, she told the truth for the first time."
@@ -421,6 +458,7 @@
       "sentence_after": "le piano depuis l'âge de cinq ans quand il a donné son premier concert.",
       "answer": "jouait",
       "alternatives": [],
+      "context": "verbe: jouer",
       "hint": "Action commencée avant et qui continue au moment de l'événement",
       "explanation": "Imparfait pour une situation en cours au moment où l'événement du passé composé se produit.",
       "translation": "He had been playing the piano since the age of five when he gave his first concert."
@@ -432,6 +470,7 @@
       "sentence_after": "trois fois avant de trouver la bonne route.",
       "answer": "nous sommes trompés",
       "alternatives": ["nous sommes trompées"],
+      "context": "verbe: se tromper",
       "hint": "Nombre précis de fois = action comptable",
       "explanation": "Passé composé pour une action qu'on peut compter (trois fois).",
       "translation": "We made a mistake three times before finding the right road."
@@ -443,6 +482,7 @@
       "sentence_after": "toujours heureux en vacances.",
       "answer": "étions",
       "alternatives": [],
+      "context": "verbe: être",
       "hint": "'Toujours' + état = imparfait",
       "explanation": "Imparfait pour un état habituel dans le passé.",
       "translation": "During our childhood, we were always happy on vacation."
@@ -454,6 +494,7 @@
       "sentence_after": "un roman quand elle a eu l'idée de son prochain livre.",
       "answer": "lisait",
       "alternatives": [],
+      "context": "verbe: lire",
       "hint": "Action en cours quand un événement survient",
       "explanation": "Imparfait pour l'action en cours au moment de l'événement soudain.",
       "translation": "She was reading a novel when she got the idea for her next book."
@@ -465,6 +506,7 @@
       "sentence_after": "trois heures pour finir le projet.",
       "answer": "a travaillé",
       "alternatives": ["a mis"],
+      "context": "verbe: travailler",
       "hint": "Durée précise et terminée",
       "explanation": "Passé composé pour une action avec une durée définie et achevée.",
       "translation": "Yesterday, he worked for three hours to finish the project."
@@ -476,6 +518,7 @@
       "sentence_after": "en France, nous visitions souvent des musées.",
       "answer": "habitions",
       "alternatives": ["vivions"],
+      "context": "verbe: habiter",
       "hint": "Habitude pendant une période passée",
       "explanation": "Imparfait pour des habitudes pendant une période passée.",
       "translation": "When we lived in France, we often visited museums."
@@ -487,6 +530,7 @@
       "sentence_after": ".",
       "answer": "a commencé",
       "alternatives": [],
+      "context": "verbe: commencer",
       "hint": "Heure précise = moment ponctuel",
       "explanation": "Passé composé pour un événement qui démarre à un moment précis.",
       "translation": "At midnight, the fireworks started."
@@ -498,6 +542,7 @@
       "sentence_after": "pas pourquoi elle était partie.",
       "answer": "comprenait",
       "alternatives": ["savait"],
+      "context": "verbe: comprendre",
       "hint": "État mental qui dure dans le passé",
       "explanation": "Imparfait pour un état mental prolongé (comprendre, savoir).",
       "translation": "He didn't understand why she had left."
