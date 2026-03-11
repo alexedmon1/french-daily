@@ -1,0 +1,20 @@
+# Daily Trainer Configuration
+
+# Maximum exercises per session
+max_items: 100
+
+# Maximum new (unseen) items per session
+max_new: 10
+
+# Vocabulary categories to exclude from practice
+excluded_categories:
+  - expressions
+
+# Fuzzy matching threshold for vocabulary exercises (0.0 to 1.0)
+fuzzy_threshold: 0.85
+
+# Fuzzy matching threshold for sentence exercises (0.0 to 1.0)
+sentence_threshold: 0.80
+
+# Session time limit in seconds before suggesting a stopping point
+session_time_limit: 900

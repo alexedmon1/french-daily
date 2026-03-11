@@ -22,7 +22,7 @@ from textual.widgets import Button, Footer, Header, Input, Label, ProgressBar, S
 
 from srs_core import SRSStats, load_stats, save_stats, normalize_input
 from exercise_types import (
-    Exercise, load_all_due, get_due_counts,
+    Exercise, load_all_due, get_due_counts, _load_config,
     load_vocab_due, load_conjugation_due, load_grammar_due, load_sentence_due,
     get_conjugation_due_by_tense,
     FLASHCARD_STATS_FILE, CONJUGATION_STATS_FILE, GRAMMAR_STATS_FILE,
@@ -515,11 +515,13 @@ class ExerciseScreen(Screen):
         label = self.query_one("#timer-label", Label)
         label.update(f"{minutes}:{seconds:02d}")
 
-        # Show "good stopping point" after 15 minutes
-        if elapsed >= 900 and not self._time_warning_shown:
+        # Show "good stopping point" after session time limit
+        time_limit = _load_config()["session_time_limit"]
+        if elapsed >= time_limit and not self._time_warning_shown:
             self._time_warning_shown = True
+            minutes_limit = time_limit // 60
             feedback = self.query_one("#feedback-label", Label)
-            feedback.update("[bold yellow]15 minutes reached — good stopping point! Press Esc to finish, or keep going.[/]")
+            feedback.update(f"[bold yellow]{minutes_limit} minutes reached — good stopping point! Press Esc to finish, or keep going.[/]")
 
     def _show_exercise(self) -> None:
         if self.current_idx >= len(self.exercises):

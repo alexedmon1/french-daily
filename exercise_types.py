@@ -18,15 +18,38 @@ from pathlib import Path
 
 from srs_core import SRSStats, load_stats
 
-CONFIG_FILE = Path("daily_trainer_config.json")
+import yaml
+
+CONFIG_FILE = Path("daily_trainer_config.yaml")
+_LEGACY_CONFIG_FILE = Path("daily_trainer_config.json")
+
+# Defaults for session settings
+_DEFAULTS = {
+    "max_items": 100,
+    "max_new": 10,
+    "excluded_categories": [],
+    "fuzzy_threshold": 0.85,
+    "sentence_threshold": 0.80,
+    "session_time_limit": 900,
+}
+
+
+def _load_config() -> dict:
+    """Load configuration from YAML file, falling back to legacy JSON."""
+    if CONFIG_FILE.is_file():
+        with CONFIG_FILE.open(encoding="utf-8") as f:
+            config = yaml.safe_load(f) or {}
+    elif _LEGACY_CONFIG_FILE.is_file():
+        with _LEGACY_CONFIG_FILE.open(encoding="utf-8") as f:
+            config = json.load(f)
+    else:
+        config = {}
+    return {**_DEFAULTS, **config}
 
 
 def _load_excluded_categories() -> set[str]:
     """Load excluded vocabulary categories from config file."""
-    if not CONFIG_FILE.is_file():
-        return set()
-    with CONFIG_FILE.open(encoding="utf-8") as f:
-        config = json.load(f)
+    config = _load_config()
     return set(config.get("excluded_categories", []))
 
 
@@ -144,7 +167,8 @@ class VocabularyExercise(Exercise):
             variants = self.english_variants
         else:
             variants = self.french_variants + self.french_synonyms
-        return _fuzzy_match(user, variants)
+        threshold = _load_config()["fuzzy_threshold"]
+        return _fuzzy_match(user, variants, threshold=threshold)
 
 
 # ----------------------------------------------------------------------
@@ -261,7 +285,8 @@ class SentenceExercise(Exercise):
             variants = [self.data["english"]] + self.data.get("alternatives_en", [])
         else:
             variants = [self.data["french"]] + self.data.get("alternatives_fr", [])
-        return _fuzzy_match(user, variants, threshold=0.80)
+        threshold = _load_config()["sentence_threshold"]
+        return _fuzzy_match(user, variants, threshold=threshold)
 
     def get_hint(self) -> str | None:
         return self.data.get("hint")
@@ -521,7 +546,7 @@ def _prioritize_and_cap(
     return combined[:max_items]
 
 
-def load_all_due(max_items: int = 60, max_new: int = 10) -> list[Exercise]:
+def load_all_due(max_items: int | None = None, max_new: int | None = None) -> list[Exercise]:
     """
     Load all due exercises from all 3 pools.
 
@@ -532,6 +557,12 @@ def load_all_due(max_items: int = 60, max_new: int = 10) -> list[Exercise]:
     4. New items capped at max_new total
     5. Shuffle final list
     """
+    config = _load_config()
+    if max_items is None:
+        max_items = config["max_items"]
+    if max_new is None:
+        max_new = config["max_new"]
+
     type_pools: dict[str, tuple[list[Exercise], dict[str, SRSStats]]] = {}
     for name, loader in [
         ("Vocabulary", _load_vocab_exercises),
