@@ -202,13 +202,17 @@ class GrammarExercise(Exercise):
         before = self.data.get("sentence_before", "")
         after = self.data.get("sentence_after", "")
         context = self.data.get("context", "")
-        translation = self.data.get("translation", "")
         sentence = f"{topic_display}\n{before} __________ {after}".strip()
+        # Show context only when it provides directional cues or
+        # French-language context (not the full English translation).
+        # The translation is shown after answering via get_translation().
         if context:
             sentence += f"\n({context})"
-        if translation and translation != context:
-            sentence += f"\n{translation}"
         return sentence
+
+    def get_translation(self) -> str | None:
+        """Return English translation for display after answering."""
+        return self.data.get("translation")
 
     def get_correct(self) -> str:
         before = self.data.get("sentence_before", "")

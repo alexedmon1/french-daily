@@ -609,6 +609,10 @@ class ExerciseScreen(Screen):
         if hasattr(ex, "get_example") and (example := ex.get_example()):
             feedback_text += f"\n[dim italic]Example: {example[0]}[/]\n[dim]{example[1]}[/]"
 
+        # Append translation for grammar exercises (shown after answering)
+        if hasattr(ex, "get_translation") and (translation := ex.get_translation()):
+            feedback_text += f"\n[dim]{translation}[/]"
+
         feedback.update(feedback_text)
 
         # Update progress bar
