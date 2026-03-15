@@ -170,6 +170,21 @@ class VocabularyExercise(Exercise):
         threshold = _load_config()["fuzzy_threshold"]
         return _fuzzy_match(user, variants, threshold=threshold)
 
+    def get_hint(self) -> str | None:
+        if self.direction == "english":
+            answer = self.english
+        else:
+            answer = self.french
+        # Show first letter and word length
+        words = answer.split()
+        hints = []
+        for w in words:
+            if len(w) <= 1:
+                hints.append(w)
+            else:
+                hints.append(w[0] + "_" * (len(w) - 1))
+        return " ".join(hints)
+
 
 # ----------------------------------------------------------------------
 # Conjugation Exercise

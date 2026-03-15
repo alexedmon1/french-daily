@@ -4,7 +4,7 @@
 max_items: 100
 
 # Maximum new (unseen) items per session
-max_new: 10
+max_new: 40
 
 # Vocabulary categories to exclude from practice
 excluded_categories:

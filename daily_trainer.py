@@ -496,6 +496,7 @@ class GrammarTopicSelectScreen(Screen):
 class ExerciseScreen(Screen):
     BINDINGS = [
         Binding("escape", "end_session", "End Session"),
+        Binding("f1", "show_hint", "Hint", show=True),
     ]
 
     def __init__(self, mode: str = "mix", tense_filter: str | None = None, topic_filter: str | None = None) -> None:
@@ -524,7 +525,7 @@ class ExerciseScreen(Screen):
                 yield Label("", id="type-label")
                 yield Label("", id="direction-label")
                 yield Label("", id="prompt-label")
-                yield Input(placeholder="Type your answer...", id="answer-input")
+                yield Input(placeholder="Type your answer (F1 for hint)...", id="answer-input")
                 yield Label("", id="hint-label")
                 yield Label("", id="feedback-label")
         yield Footer()
@@ -678,7 +679,7 @@ class ExerciseScreen(Screen):
     def _advance(self) -> None:
         self.current_idx += 1
         inp = self.query_one("#answer-input", Input)
-        inp.placeholder = "Type your answer..."
+        inp.placeholder = "Type your answer (F1 for hint)..."
         self._show_exercise()
 
     def _end_session(self) -> None:
@@ -686,6 +687,14 @@ class ExerciseScreen(Screen):
             self._session_timer.stop()
         elapsed = time.monotonic() - self.session_start if self.session_start else 0
         self.app.push_screen(SummaryScreen(self.results, elapsed))
+
+    def action_show_hint(self) -> None:
+        if self.waiting_for_next or self.current_idx >= len(self.exercises):
+            return
+        ex = self.exercises[self.current_idx]
+        hint = ex.get_hint()
+        if hint:
+            self.query_one("#hint-label", Label).update(f"[dim italic]Hint: {hint}[/]")
 
     def action_end_session(self) -> None:
         self._end_session()
