@@ -182,7 +182,8 @@ class ConjugationExercise(Exercise):
     stats_file = CONJUGATION_STATS_FILE
 
     def __init__(self, verb: str, tense: str, tense_display: str,
-                 pronoun: str, correct_form: str, translation: str, key: str):
+                 pronoun: str, correct_form: str, translation: str, key: str,
+                 regularity: str = ""):
         self.verb = verb
         self.tense = tense
         self.tense_display = tense_display
@@ -190,6 +191,7 @@ class ConjugationExercise(Exercise):
         self.correct_form = correct_form
         self.translation = translation
         self.key = key
+        self.regularity = regularity
 
     def get_prompt(self) -> str:
         return f"{self.verb} ({self.translation}) — {self.tense_display}\n{self.pronoun} ..."
@@ -201,9 +203,12 @@ class ConjugationExercise(Exercise):
         return user_input.strip().lower() == self.correct_form.lower()
 
     def get_hint(self) -> str | None:
+        parts = []
+        if self.regularity:
+            parts.append(self.regularity)
         if len(self.correct_form) >= 3:
-            return f"Starts with: {self.correct_form[:2]}..."
-        return None
+            parts.append(f"Starts with: {self.correct_form[:2]}...")
+        return " — ".join(parts) if parts else None
 
 
 # ----------------------------------------------------------------------
@@ -382,6 +387,7 @@ def _load_conjugation_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
     from conjugation_engine import (
         conjugate, get_all_verbs, get_translation,
         get_tense_display_name, get_all_tenses, get_random_pronouns,
+        get_verb_regularity,
     )
 
     verb_data_path = Path("conjugation_data/verbs.json")
@@ -417,6 +423,7 @@ def _load_conjugation_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
                 correct_form=correct_form,
                 translation=get_translation(verb),
                 key=key,
+                regularity=get_verb_regularity(verb, tense),
             ))
 
     return exercises, stats
@@ -628,12 +635,37 @@ def load_conjugation_due(tense_filter: str | None = None, max_items: int = 60) -
     return result
 
 
-def load_grammar_due(max_items: int = 60) -> list[Exercise]:
-    """Load due grammar exercises for focused practice."""
+def load_grammar_due(topic_filter: str | None = None, max_items: int = 60) -> list[Exercise]:
+    """Load due grammar exercises, optionally filtered by topic."""
     exercises, stats = _load_grammar_exercises()
+    if topic_filter:
+        exercises = [ex for ex in exercises if ex.topic_name == topic_filter]
     result = _prioritize_and_cap(exercises, stats, max_items)
     random.shuffle(result)
     return result
+
+
+def get_grammar_due_by_topic() -> dict[str, int]:
+    """Get count of due grammar exercises broken down by topic."""
+    grammar_dir = Path("grammar_data")
+    if not grammar_dir.exists():
+        return {}
+
+    stats = load_stats(GRAMMAR_STATS_FILE)
+    today = date.today().isoformat()
+    counts: dict[str, int] = {}
+
+    for json_path in sorted(grammar_dir.glob("*.json")):
+        topic_name = json_path.stem
+        with json_path.open(encoding="utf-8") as f:
+            topic_data = json.load(f)
+        for ex in topic_data.get("exercises", []):
+            key = f"{topic_name}|{ex['id']}"
+            stat = stats.get(key)
+            if stat is None or stat.due_date <= today:
+                counts[topic_name] = counts.get(topic_name, 0) + 1
+
+    return counts
 
 
 def load_sentence_due(max_items: int = 60) -> list[Exercise]:

@@ -429,6 +429,47 @@ def conjugate(infinitive: str, tense: str,
 # Utility functions
 # ----------------------------------------------------------------------
 
+def get_verb_regularity(infinitive: str, tense: str) -> str:
+    """Describe whether a verb is regular or irregular in a given tense.
+
+    Returns a short string like "Regular -ER verb", "Irregular",
+    or "Irregular stem" for the hint system.
+    """
+    verb_data = get_verb(infinitive)
+    if not verb_data:
+        return ""
+
+    verb_type = verb_data.get("type", "")
+
+    if verb_type == "regular_er":
+        return "Regular -ER verb"
+    elif verb_type == "regular_ir":
+        return "Regular -IR verb"
+
+    # Irregular verb — check if this specific tense uses explicit forms or stems
+    forms = verb_data.get("forms", {})
+    stems = verb_data.get("stems", {})
+
+    tense_key = tense
+    if tense == "past":
+        # Passé composé: irregular if has explicit past_participle
+        if "past_participle" in verb_data:
+            return "Irregular (past participle)"
+        return "Irregular"
+
+    if tense_key in forms:
+        return "Irregular (unique forms)"
+
+    stem_map = {"future": "future", "imparfait": "imparfait", "conditional": "future"}
+    if stem_map.get(tense_key) in stems:
+        return "Irregular (irregular stem)"
+
+    if tense == "present":
+        return "Irregular"
+
+    return "Irregular"
+
+
 def get_tense_display_name(tense: str) -> str:
     """Get the French display name for a tense."""
     names = {

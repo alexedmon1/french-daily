@@ -1,0 +1,695 @@
+{
+  "topic": "Prépositions verbales",
+  "description": "Les prépositions qui suivent les verbes: à, de, sans préposition",
+  "levels": {
+    "1": "verbe + à vs verbe + de (common verbs)",
+    "2": "verbes sans préposition (where English uses one) + other constructions",
+    "3": "verbes qui changent de sens selon la préposition"
+  },
+  "exercises": [
+    {
+      "id": "pv001",
+      "level": 1,
+      "sentence_before": "Je pense",
+      "sentence_after": "toi.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "penser à = to think about",
+      "explanation": "'Penser à' signifie penser à quelqu'un ou quelque chose.",
+      "translation": "I'm thinking about you."
+    },
+    {
+      "id": "pv002",
+      "level": 1,
+      "sentence_before": "Il essaie",
+      "sentence_after": "comprendre.",
+      "answer": "de",
+      "alternatives": [
+        "d'"
+      ],
+      "hint": "essayer de = to try to",
+      "explanation": "'Essayer de' + infinitif signifie tenter de faire quelque chose.",
+      "translation": "He's trying to understand."
+    },
+    {
+      "id": "pv003",
+      "level": 1,
+      "sentence_before": "Elle parle",
+      "sentence_after": "son professeur.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "parler à = to talk to someone",
+      "explanation": "'Parler à' + personne signifie s'adresser à quelqu'un.",
+      "translation": "She's talking to her teacher."
+    },
+    {
+      "id": "pv004",
+      "level": 1,
+      "sentence_before": "Nous parlons",
+      "sentence_after": "nos vacances.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "parler de = to talk about",
+      "explanation": "'Parler de' signifie discuter d'un sujet.",
+      "translation": "We're talking about our vacation."
+    },
+    {
+      "id": "pv005",
+      "level": 1,
+      "sentence_before": "Tu as répondu",
+      "sentence_after": "la question ?",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "répondre à = to answer",
+      "explanation": "'Répondre à' signifie donner une réponse à quelque chose.",
+      "translation": "Did you answer the question?"
+    },
+    {
+      "id": "pv006",
+      "level": 1,
+      "sentence_before": "Les enfants obéissent",
+      "sentence_after": "leurs parents.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "obéir à = to obey",
+      "explanation": "'Obéir à' signifie se soumettre à l'autorité de quelqu'un.",
+      "translation": "The children obey their parents."
+    },
+    {
+      "id": "pv007",
+      "level": 1,
+      "sentence_before": "Elle ressemble",
+      "sentence_after": "sa mère.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "ressembler à = to look like",
+      "explanation": "'Ressembler à' signifie avoir l'apparence de quelqu'un.",
+      "translation": "She looks like her mother."
+    },
+    {
+      "id": "pv008",
+      "level": 1,
+      "sentence_before": "Il s'intéresse",
+      "sentence_after": "la musique.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "s'intéresser à = to be interested in",
+      "explanation": "'S'intéresser à' signifie avoir de l'intérêt pour quelque chose.",
+      "translation": "He's interested in music."
+    },
+    {
+      "id": "pv009",
+      "level": 1,
+      "sentence_before": "J'ai besoin",
+      "sentence_after": "ton aide.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "avoir besoin de = to need",
+      "explanation": "'Avoir besoin de' signifie nécessiter quelque chose.",
+      "translation": "I need your help."
+    },
+    {
+      "id": "pv010",
+      "level": 1,
+      "sentence_before": "Tu as peur",
+      "sentence_after": "l'orage ?",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "avoir peur de = to be afraid of",
+      "explanation": "'Avoir peur de' signifie craindre quelque chose.",
+      "translation": "Are you afraid of the storm?"
+    },
+    {
+      "id": "pv011",
+      "level": 1,
+      "sentence_before": "Je me souviens",
+      "sentence_after": "cette journée.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "se souvenir de = to remember",
+      "explanation": "'Se souvenir de' signifie garder en mémoire.",
+      "translation": "I remember that day."
+    },
+    {
+      "id": "pv012",
+      "level": 1,
+      "sentence_before": "Nous profitons",
+      "sentence_after": "beau temps.",
+      "answer": "du",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "profiter de = to enjoy / take advantage of",
+      "explanation": "'Profiter de' signifie tirer avantage de. 'Du' = de + le.",
+      "translation": "We're enjoying the nice weather."
+    },
+    {
+      "id": "pv013",
+      "level": 1,
+      "sentence_before": "Elle a réussi",
+      "sentence_after": "obtenir le poste.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "réussir à = to succeed in / manage to",
+      "explanation": "'Réussir à' + infinitif signifie parvenir à faire quelque chose.",
+      "translation": "She managed to get the position."
+    },
+    {
+      "id": "pv014",
+      "level": 1,
+      "sentence_before": "Il commence",
+      "sentence_after": "pleuvoir.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "commencer à = to start to",
+      "explanation": "'Commencer à' + infinitif signifie débuter une action.",
+      "translation": "It's starting to rain."
+    },
+    {
+      "id": "pv015",
+      "level": 1,
+      "sentence_before": "J'apprends",
+      "sentence_after": "jouer du piano.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "apprendre à = to learn to",
+      "explanation": "'Apprendre à' + infinitif signifie s'instruire pour faire quelque chose.",
+      "translation": "I'm learning to play the piano."
+    },
+    {
+      "id": "pv016",
+      "level": 1,
+      "sentence_before": "Tu m'aides",
+      "sentence_after": "faire la cuisine ?",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "aider à = to help to",
+      "explanation": "'Aider à' + infinitif signifie assister quelqu'un dans une action.",
+      "translation": "Are you helping me cook?"
+    },
+    {
+      "id": "pv017",
+      "level": 1,
+      "sentence_before": "Vous avez fini",
+      "sentence_after": "manger ?",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "finir de = to finish doing",
+      "explanation": "'Finir de' + infinitif signifie terminer une action.",
+      "translation": "Have you finished eating?"
+    },
+    {
+      "id": "pv018",
+      "level": 1,
+      "sentence_before": "Il refuse",
+      "sentence_after": "partir.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "refuser de = to refuse to",
+      "explanation": "'Refuser de' + infinitif signifie ne pas accepter de faire quelque chose.",
+      "translation": "He refuses to leave."
+    },
+    {
+      "id": "pv019",
+      "level": 1,
+      "sentence_before": "Nous avons décidé",
+      "sentence_after": "déménager.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "décider de = to decide to",
+      "explanation": "'Décider de' + infinitif signifie faire un choix.",
+      "translation": "We decided to move."
+    },
+    {
+      "id": "pv020",
+      "level": 1,
+      "sentence_before": "Elle rêve",
+      "sentence_after": "voyager en Asie.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "rêver de = to dream of",
+      "explanation": "'Rêver de' signifie avoir le désir ou l'envie de faire quelque chose.",
+      "translation": "She dreams of traveling to Asia."
+    },
+    {
+      "id": "pv021",
+      "level": 2,
+      "sentence_before": "Il hésite",
+      "sentence_after": "accepter l'offre.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "hésiter à = to hesitate to",
+      "explanation": "'Hésiter à' + infinitif signifie ne pas être sûr de vouloir faire quelque chose.",
+      "translation": "He's hesitating to accept the offer."
+    },
+    {
+      "id": "pv022",
+      "level": 2,
+      "sentence_before": "Nous cherchons",
+      "sentence_after": "comprendre la situation.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "chercher à = to try to / seek to",
+      "explanation": "'Chercher à' + infinitif signifie essayer de faire quelque chose.",
+      "translation": "We're trying to understand the situation."
+    },
+    {
+      "id": "pv023",
+      "level": 2,
+      "sentence_before": "Elle a renoncé",
+      "sentence_after": "son projet.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "renoncer à = to give up on",
+      "explanation": "'Renoncer à' signifie abandonner quelque chose.",
+      "translation": "She gave up on her project."
+    },
+    {
+      "id": "pv024",
+      "level": 2,
+      "sentence_before": "Cet outil sert",
+      "sentence_after": "ouvrir les boîtes.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "servir à = to be used for",
+      "explanation": "'Servir à' signifie avoir une utilité, une fonction.",
+      "translation": "This tool is used to open cans."
+    },
+    {
+      "id": "pv025",
+      "level": 2,
+      "sentence_before": "Je m'habitue",
+      "sentence_after": "mon nouvel appartement.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "s'habituer à = to get used to",
+      "explanation": "'S'habituer à' signifie s'adapter progressivement.",
+      "translation": "I'm getting used to my new apartment."
+    },
+    {
+      "id": "pv026",
+      "level": 2,
+      "sentence_before": "Tu t'adaptes",
+      "sentence_after": "la vie en France ?",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "s'adapter à = to adapt to",
+      "explanation": "'S'adapter à' signifie s'ajuster à une nouvelle situation.",
+      "translation": "Are you adapting to life in France?"
+    },
+    {
+      "id": "pv027",
+      "level": 2,
+      "sentence_before": "Le bruit n'a pas cessé",
+      "sentence_after": "toute la nuit.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "cesser de = to stop / cease",
+      "explanation": "'Cesser de' + infinitif signifie arrêter de faire quelque chose.",
+      "translation": "The noise didn't stop all night."
+    },
+    {
+      "id": "pv028",
+      "level": 2,
+      "sentence_before": "Je crains",
+      "sentence_after": "le déranger.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "craindre de = to fear / be afraid of",
+      "explanation": "'Craindre de' + infinitif signifie avoir peur de faire quelque chose.",
+      "translation": "I'm afraid of disturbing him."
+    },
+    {
+      "id": "pv029",
+      "level": 2,
+      "sentence_before": "Ce film mérite",
+      "sentence_after": "être vu.",
+      "answer": "d'",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "mériter de = to deserve to",
+      "explanation": "'Mériter de' + infinitif signifie être digne de quelque chose. 'd'' devant voyelle.",
+      "translation": "This movie deserves to be seen."
+    },
+    {
+      "id": "pv030",
+      "level": 2,
+      "sentence_before": "Vous risquez",
+      "sentence_after": "tomber malade.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "risquer de = to risk / might",
+      "explanation": "'Risquer de' + infinitif signifie courir le risque de.",
+      "translation": "You might get sick."
+    },
+    {
+      "id": "pv031",
+      "level": 2,
+      "sentence_before": "J'évite",
+      "sentence_after": "prendre le métro aux heures de pointe.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "éviter de = to avoid doing",
+      "explanation": "'Éviter de' + infinitif signifie chercher à ne pas faire quelque chose.",
+      "translation": "I avoid taking the metro at rush hour."
+    },
+    {
+      "id": "pv032",
+      "level": 2,
+      "sentence_before": "Il manque",
+      "sentence_after": "courage.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "manquer de = to lack",
+      "explanation": "'Manquer de' signifie ne pas avoir assez de quelque chose.",
+      "translation": "He lacks courage."
+    },
+    {
+      "id": "pv033",
+      "level": 2,
+      "sentence_before": "Elle se charge",
+      "sentence_after": "la réservation.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "se charger de = to take care of / handle",
+      "explanation": "'Se charger de' signifie prendre la responsabilité de quelque chose.",
+      "translation": "She's taking care of the reservation."
+    },
+    {
+      "id": "pv034",
+      "level": 2,
+      "sentence_before": "Ils se plaignent",
+      "sentence_after": "bruit.",
+      "answer": "du",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "se plaindre de = to complain about",
+      "explanation": "'Se plaindre de' signifie exprimer son mécontentement. 'du' = de + le.",
+      "translation": "They're complaining about the noise."
+    },
+    {
+      "id": "pv035",
+      "level": 2,
+      "sentence_before": "Tu peux compter",
+      "sentence_after": "moi.",
+      "answer": "sur",
+      "alternatives": [],
+      "hint": "compter sur = to count on / rely on",
+      "explanation": "'Compter sur' signifie faire confiance à quelqu'un.",
+      "translation": "You can count on me."
+    },
+    {
+      "id": "pv036",
+      "level": 2,
+      "sentence_before": "Nous nous appuyons",
+      "sentence_after": "des données fiables.",
+      "answer": "sur",
+      "alternatives": [],
+      "hint": "s'appuyer sur = to rely on / be based on",
+      "explanation": "'S'appuyer sur' signifie se baser sur quelque chose.",
+      "translation": "We rely on reliable data."
+    },
+    {
+      "id": "pv037",
+      "level": 2,
+      "sentence_before": "Je te remercie",
+      "sentence_after": "ton aide.",
+      "answer": "pour",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "remercier pour = to thank for",
+      "explanation": "'Remercier pour' (ou 'remercier de') signifie exprimer sa gratitude.",
+      "translation": "I thank you for your help."
+    },
+    {
+      "id": "pv038",
+      "level": 2,
+      "sentence_before": "Nous avons commencé",
+      "sentence_after": "lire le chapitre.",
+      "answer": "par",
+      "alternatives": [],
+      "hint": "commencer par = to start by / start with",
+      "explanation": "'Commencer par' signifie faire quelque chose en premier.",
+      "translation": "We started by reading the chapter."
+    },
+    {
+      "id": "pv039",
+      "level": 2,
+      "sentence_before": "Il a fini",
+      "sentence_after": "s'excuser.",
+      "answer": "par",
+      "alternatives": [],
+      "hint": "finir par = to end up doing",
+      "explanation": "'Finir par' signifie faire quelque chose après un long moment.",
+      "translation": "He ended up apologizing."
+    },
+    {
+      "id": "pv040",
+      "level": 2,
+      "sentence_before": "Marie s'occupe",
+      "sentence_after": "enfants.",
+      "answer": "des",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "s'occuper de = to take care of",
+      "explanation": "'S'occuper de' signifie prendre soin de. 'des' = de + les.",
+      "translation": "Marie takes care of the children."
+    },
+    {
+      "id": "pv041",
+      "level": 3,
+      "sentence_before": "Les garçons jouent",
+      "sentence_after": "football.",
+      "answer": "au",
+      "alternatives": [
+        "à"
+      ],
+      "hint": "jouer à = to play (a sport or game)",
+      "explanation": "'Jouer à' s'utilise pour les sports et les jeux. 'au' = à + le.",
+      "translation": "The boys are playing football."
+    },
+    {
+      "id": "pv042",
+      "level": 3,
+      "sentence_before": "Sophie joue",
+      "sentence_after": "la guitare.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "jouer de = to play (an instrument)",
+      "explanation": "'Jouer de' s'utilise pour les instruments de musique.",
+      "translation": "Sophie plays the guitar."
+    },
+    {
+      "id": "pv043",
+      "level": 3,
+      "sentence_before": "Tu joues",
+      "sentence_after": "cartes ce soir ?",
+      "answer": "aux",
+      "alternatives": [
+        "à"
+      ],
+      "hint": "jouer à = to play (a game)",
+      "explanation": "'Jouer à' s'utilise pour les jeux. 'aux' = à + les.",
+      "translation": "Are you playing cards tonight?"
+    },
+    {
+      "id": "pv044",
+      "level": 3,
+      "sentence_before": "Mon frère joue",
+      "sentence_after": "violon depuis cinq ans.",
+      "answer": "du",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "jouer de = to play (an instrument)",
+      "explanation": "'Jouer de' s'utilise pour les instruments de musique. 'du' = de + le.",
+      "translation": "My brother has been playing the violin for five years."
+    },
+    {
+      "id": "pv045",
+      "level": 3,
+      "sentence_before": "Je pense souvent",
+      "sentence_after": "mon enfance.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "penser à = to think about (have in mind)",
+      "explanation": "'Penser à' signifie avoir quelque chose à l'esprit.",
+      "translation": "I often think about my childhood."
+    },
+    {
+      "id": "pv046",
+      "level": 3,
+      "sentence_before": "Qu'est-ce que tu penses",
+      "sentence_after": "ce film ?",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "penser de = to think of (have an opinion about)",
+      "explanation": "'Penser de' signifie avoir une opinion sur quelque chose.",
+      "translation": "What do you think of this movie?"
+    },
+    {
+      "id": "pv047",
+      "level": 3,
+      "sentence_before": "Paris manque",
+      "sentence_after": "Marie depuis qu'elle a déménagé.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "manquer à = to be missed by (structure inversée)",
+      "explanation": "'Manquer à quelqu'un' signifie que quelqu'un ressent l'absence. Paris manque à Marie = Marie misses Paris.",
+      "translation": "Marie misses Paris since she moved."
+    },
+    {
+      "id": "pv048",
+      "level": 3,
+      "sentence_before": "Cette région manque",
+      "sentence_after": "eau potable.",
+      "answer": "d'",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "manquer de = to lack",
+      "explanation": "'Manquer de' signifie ne pas avoir assez de quelque chose. 'd'' devant voyelle.",
+      "translation": "This region lacks drinking water."
+    },
+    {
+      "id": "pv049",
+      "level": 3,
+      "sentence_before": "Je tiens",
+      "sentence_after": "te remercier.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "tenir à = to insist on / care about",
+      "explanation": "'Tenir à' signifie vouloir absolument faire quelque chose.",
+      "translation": "I insist on thanking you."
+    },
+    {
+      "id": "pv050",
+      "level": 3,
+      "sentence_before": "Marc tient",
+      "sentence_after": "son père : ils ont le même caractère.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "tenir de = to take after (resemble)",
+      "explanation": "'Tenir de' signifie ressembler à un parent.",
+      "translation": "Marc takes after his father: they have the same personality."
+    },
+    {
+      "id": "pv051",
+      "level": 3,
+      "sentence_before": "Ce canapé sert",
+      "sentence_after": "lit pour les invités.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "servir de = to serve as",
+      "explanation": "'Servir de' signifie être utilisé comme, tenir lieu de.",
+      "translation": "This sofa serves as a bed for guests."
+    },
+    {
+      "id": "pv052",
+      "level": 3,
+      "sentence_before": "Cette clé sert",
+      "sentence_after": "ouvrir le garage.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "servir à = to be used for",
+      "explanation": "'Servir à' + infinitif signifie avoir pour fonction de.",
+      "translation": "This key is used to open the garage."
+    },
+    {
+      "id": "pv053",
+      "level": 3,
+      "sentence_before": "Elle vient",
+      "sentence_after": "arriver.",
+      "answer": "de",
+      "alternatives": [
+        "d'"
+      ],
+      "hint": "venir de = to have just (done something)",
+      "explanation": "'Venir de' + infinitif exprime le passé récent.",
+      "translation": "She has just arrived."
+    },
+    {
+      "id": "pv054",
+      "level": 3,
+      "sentence_before": "Il s'est mis",
+      "sentence_after": "courir tous les matins.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "se mettre à = to start / begin",
+      "explanation": "'Se mettre à' + infinitif signifie commencer à faire quelque chose.",
+      "translation": "He started running every morning."
+    },
+    {
+      "id": "pv055",
+      "level": 3,
+      "sentence_before": "Je tiens beaucoup",
+      "sentence_after": "cette bague : c'était celle de ma grand-mère.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "tenir à = to cherish / value",
+      "explanation": "'Tenir à' quelque chose signifie y attacher de l'importance.",
+      "translation": "I really cherish this ring: it was my grandmother's."
+    },
+    {
+      "id": "pv056",
+      "level": 3,
+      "sentence_before": "Qu'est-ce que tu penses",
+      "sentence_after": "nouveau directeur ?",
+      "answer": "du",
+      "alternatives": [
+        "de"
+      ],
+      "hint": "penser de = to think of / have an opinion about",
+      "explanation": "'Penser de' signifie avoir une opinion. 'du' = de + le.",
+      "translation": "What do you think of the new director?"
+    },
+    {
+      "id": "pv057",
+      "level": 3,
+      "sentence_before": "N'oublie pas",
+      "sentence_after": "penser à tes clés.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "oublier de = to forget to",
+      "explanation": "'Oublier de' + infinitif signifie ne pas se rappeler de faire quelque chose.",
+      "translation": "Don't forget to remember your keys."
+    },
+    {
+      "id": "pv058",
+      "level": 3,
+      "sentence_before": "Les enfants se sont mis",
+      "sentence_after": "pleurer en même temps.",
+      "answer": "à",
+      "alternatives": [],
+      "hint": "se mettre à = to start / begin suddenly",
+      "explanation": "'Se mettre à' + infinitif signifie commencer soudainement.",
+      "translation": "The children started crying at the same time."
+    },
+    {
+      "id": "pv059",
+      "level": 3,
+      "sentence_before": "Elle a fini",
+      "sentence_after": "accepter notre invitation.",
+      "answer": "par",
+      "alternatives": [],
+      "hint": "finir par = to end up (doing)",
+      "explanation": "'Finir par' signifie faire quelque chose après hésitation ou un long moment.",
+      "translation": "She ended up accepting our invitation."
+    },
+    {
+      "id": "pv060",
+      "level": 3,
+      "sentence_before": "Ils ont fini",
+      "sentence_after": "déjeuner à midi.",
+      "answer": "de",
+      "alternatives": [],
+      "hint": "finir de = to finish (doing)",
+      "explanation": "'Finir de' + infinitif signifie terminer une action en cours.",
+      "translation": "They finished eating lunch at noon."
+    }
+  ]
+}

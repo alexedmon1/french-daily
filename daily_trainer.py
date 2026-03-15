@@ -24,7 +24,7 @@ from srs_core import SRSStats, load_stats, save_stats, normalize_input
 from exercise_types import (
     Exercise, load_all_due, get_due_counts, _load_config,
     load_vocab_due, load_conjugation_due, load_grammar_due, load_sentence_due,
-    get_conjugation_due_by_tense,
+    get_conjugation_due_by_tense, get_grammar_due_by_topic,
     FLASHCARD_STATS_FILE, CONJUGATION_STATS_FILE, GRAMMAR_STATS_FILE,
     SENTENCE_STATS_FILE,
 )
@@ -342,7 +342,7 @@ class DashboardScreen(Screen):
         self.app.push_screen(TenseSelectScreen())
 
     def action_mode_grammar(self) -> None:
-        self.app.push_screen(ExerciseScreen(mode="grammar"))
+        self.app.push_screen(GrammarTopicSelectScreen())
 
     def action_mode_sentence(self) -> None:
         self.app.push_screen(ExerciseScreen(mode="sentence"))
@@ -445,6 +445,52 @@ class TenseSelectScreen(Screen):
 
 
 # ======================================================================
+# Grammar Topic Select Screen
+# ======================================================================
+class GrammarTopicSelectScreen(Screen):
+    BINDINGS = [
+        Binding("escape", "go_back", "Back"),
+    ]
+
+    def compose(self) -> ComposeResult:
+        yield Header(show_clock=True)
+        with Center(id="tense-select"):
+            with Vertical(id="tense-box"):
+                yield Label("Select Grammar Topic", id="tense-title")
+                with Vertical(id="tense-buttons"):
+                    yield Button("All Topics", id="grammar-all", variant="primary")
+        yield Footer()
+
+    def on_mount(self) -> None:
+        counts = get_grammar_due_by_topic()
+        total = sum(counts.values())
+        self.query_one("#grammar-all", Button).label = f"All Topics — {total} due"
+
+        container = self.query_one("#tense-buttons", Vertical)
+        for topic_name in sorted(counts.keys()):
+            display = topic_name.replace("_", " ").title()
+            count = counts[topic_name]
+            btn = Button(f"{display} — {count} due", id=f"grammar-{topic_name}", variant="default")
+            container.mount(btn)
+
+    @on(Button.Pressed, "#grammar-all")
+    def on_all(self) -> None:
+        self.app.pop_screen()
+        self.app.push_screen(ExerciseScreen(mode="grammar"))
+
+    @on(Button.Pressed)
+    def on_topic_pressed(self, event: Button.Pressed) -> None:
+        btn_id = event.button.id or ""
+        if btn_id.startswith("grammar-") and btn_id != "grammar-all":
+            topic = btn_id[len("grammar-"):]
+            self.app.pop_screen()
+            self.app.push_screen(ExerciseScreen(mode="grammar", topic_filter=topic))
+
+    def action_go_back(self) -> None:
+        self.app.pop_screen()
+
+
+# ======================================================================
 # Exercise Screen
 # ======================================================================
 class ExerciseScreen(Screen):
@@ -452,10 +498,11 @@ class ExerciseScreen(Screen):
         Binding("escape", "end_session", "End Session"),
     ]
 
-    def __init__(self, mode: str = "mix", tense_filter: str | None = None) -> None:
+    def __init__(self, mode: str = "mix", tense_filter: str | None = None, topic_filter: str | None = None) -> None:
         super().__init__()
         self.mode = mode
         self.tense_filter = tense_filter
+        self.topic_filter = topic_filter
         self.exercises: list[Exercise] = []
         self.current_idx = 0
         self.results: list[dict] = []  # {exercise, correct}
@@ -488,7 +535,7 @@ class ExerciseScreen(Screen):
         elif self.mode == "conjugation":
             self.exercises = load_conjugation_due(tense_filter=self.tense_filter)
         elif self.mode == "grammar":
-            self.exercises = load_grammar_due()
+            self.exercises = load_grammar_due(topic_filter=self.topic_filter)
         elif self.mode == "sentence":
             self.exercises = load_sentence_due()
         else:
