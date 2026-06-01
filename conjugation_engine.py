@@ -535,6 +535,40 @@ def get_verb_regularity(infinitive: str, tense: str) -> str:
     return "Irregular"
 
 
+def get_pattern_hint(infinitive: str, tense: str) -> Optional[str]:
+    """Return a one-line ending-pattern hint for regular -ER / -IR verbs.
+
+    Examples:
+        "Régulier -ER, présent — stem + e/es/e/ons/ez/ent"
+        "Régulier -IR, passé composé — avoir/être (présent) + participe passé en -i"
+
+    Returns None for irregular verbs (the existing regularity hint is used
+    in that case).
+    """
+    verb_data = get_verb(infinitive)
+    if not verb_data:
+        return None
+
+    verb_type = verb_data.get("type", "")
+    if verb_type not in ("regular_er", "regular_ir"):
+        return None
+
+    type_label = "-ER" if verb_type == "regular_er" else "-IR"
+    tense_label = get_tense_display_name(tense)
+
+    if tense == "past":
+        participle = "-é" if verb_type == "regular_er" else "-i"
+        return f"Régulier {type_label}, {tense_label} — avoir/être (présent) + participe passé en {participle}"
+
+    endings_map = ER_ENDINGS if verb_type == "regular_er" else IR_ENDINGS
+    endings = endings_map.get(tense)
+    if not endings:
+        return None
+
+    stem_label = "infinitif" if tense in ("future", "conditional") else "stem"
+    return f"Régulier {type_label}, {tense_label} — {stem_label} + {'/'.join(endings)}"
+
+
 def get_tense_display_name(tense: str) -> str:
     """Get the French display name for a tense."""
     names = {

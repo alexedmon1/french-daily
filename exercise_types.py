@@ -249,6 +249,10 @@ class ConjugationExercise(Exercise):
         return user_input.strip().lower() == self.correct_form.lower()
 
     def get_hint(self) -> str | None:
+        from conjugation_engine import get_pattern_hint
+        pattern = get_pattern_hint(self.verb, self.tense)
+        if pattern:
+            return pattern
         parts = []
         if self.regularity:
             parts.append(self.regularity)
