@@ -273,6 +273,7 @@ Screen {
 #hint-label {
     color: $text-muted;
     text-style: italic;
+    width: 100%;
     height: auto;
 }
 

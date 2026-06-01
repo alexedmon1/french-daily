@@ -536,37 +536,78 @@ def get_verb_regularity(infinitive: str, tense: str) -> str:
 
 
 def get_pattern_hint(infinitive: str, tense: str) -> Optional[str]:
-    """Return a one-line ending-pattern hint for regular -ER / -IR verbs.
+    """Return an ending-pattern hint as two lines (header + formula).
 
-    Examples:
-        "Régulier -ER, présent — stem + e/es/e/ons/ez/ent"
-        "Régulier -IR, passé composé — avoir/être (présent) + participe passé en -i"
+    Regular -ER / -IR verbs get their canonical pattern. Irregular verbs
+    also get a useful hint for future, conditional, imparfait, and past
+    composé — only the stem (or past participle) is verb-specific in
+    those tenses; the endings are universal.
 
-    Returns None for irregular verbs (the existing regularity hint is used
-    in that case).
+    Returns None when there is no clean formula (irregular present /
+    subjunctive, or any tense where the verb defines explicit forms).
     """
     verb_data = get_verb(infinitive)
     if not verb_data:
         return None
 
     verb_type = verb_data.get("type", "")
-    if verb_type not in ("regular_er", "regular_ir"):
-        return None
-
-    type_label = "-ER" if verb_type == "regular_er" else "-IR"
+    forms = verb_data.get("forms", {})
+    stems = verb_data.get("stems", {})
     tense_label = get_tense_display_name(tense)
 
-    if tense == "past":
-        participle = "-é" if verb_type == "regular_er" else "-i"
-        return f"Régulier {type_label}, {tense_label} — avoir/être (présent) + participe passé en {participle}"
+    if verb_type == "regular_er":
+        type_label = "Régulier -ER"
+    elif verb_type == "regular_ir":
+        type_label = "Régulier -IR"
+    else:
+        type_label = "Irrégulier"
+    header = f"{type_label}, {tense_label}"
 
-    endings_map = ER_ENDINGS if verb_type == "regular_er" else IR_ENDINGS
-    endings = endings_map.get(tense)
-    if not endings:
+    # Passé composé — auxiliary + past participle, universal structure
+    if tense == "past":
+        if verb_type == "regular_er":
+            return f"{header}\n  avoir/être (présent) + participe passé en -é"
+        if verb_type == "regular_ir":
+            return f"{header}\n  avoir/être (présent) + participe passé en -i"
+        aux = verb_data.get("auxiliary", "avoir")
+        pp = verb_data.get("past_participle")
+        if pp:
+            return f"{header}\n  {aux} (présent) + «{pp}» (participe passé)"
         return None
 
-    stem_label = "infinitif" if tense in ("future", "conditional") else "stem"
-    return f"Régulier {type_label}, {tense_label} — {stem_label} + {'/'.join(endings)}"
+    # If the verb defines explicit forms for this tense, no formula applies.
+    if tense in forms:
+        return None
+
+    # Regular -ER / -IR: stem (or infinitive) + canonical endings.
+    if verb_type in ("regular_er", "regular_ir"):
+        endings = (ER_ENDINGS if verb_type == "regular_er" else IR_ENDINGS).get(tense)
+        if not endings:
+            return None
+        stem_label = "infinitif" if tense in ("future", "conditional") else "stem"
+        return f"{header}\n  {stem_label} + {'/'.join(endings)}"
+
+    # Irregular verb: endings are still universal for future / conditional
+    # / imparfait. Only the stem is verb-specific.
+    if tense in ("future", "conditional"):
+        stem = stems.get("future")
+        if not stem:
+            if infinitive.endswith(("er", "ir")):
+                stem = infinitive
+            elif infinitive.endswith("re"):
+                stem = infinitive[:-1]
+            else:
+                return None
+        endings = ER_ENDINGS[tense]
+        return f"{header}\n  radical «{stem}-» + {'/'.join(endings)}"
+
+    if tense == "imparfait":
+        stem = get_imparfait_stem(infinitive, verb_data)
+        endings = ["ais", "ais", "ait", "ions", "iez", "aient"]
+        return f"{header}\n  radical «{stem}-» + {'/'.join(endings)}"
+
+    # Irregular present / subjunctive: no single-line formula.
+    return None
 
 
 def get_tense_display_name(tense: str) -> str:
