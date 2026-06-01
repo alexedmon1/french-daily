@@ -3,12 +3,13 @@
 """
 French Conjugation Trainer with SRS support
 
-Practice French verb conjugations across 5 tenses:
+Practice French verb conjugations across 6 tenses:
 - Présent (present)
 - Futur simple (future)
 - Imparfait (imparfait)
 - Passé composé (past)
 - Conditionnel présent (conditional)
+- Subjonctif présent (subjunctive)
 
 Supports 93 verbs organized by tier (core, intermediate, advanced)
 and type (regular -ER, regular -IR, irregular).
@@ -51,10 +52,11 @@ TENSE_NAMES = {
     "imparfait": "imparfait",
     "past": "passé composé",
     "conditional": "conditionnel présent",
+    "subjunctive": "subjonctif présent",
 }
 
 # Valid tenses for --tense flag (short codes)
-VALID_TENSE_FLAGS = ["present", "future", "past", "imparfait", "conditional"]
+VALID_TENSE_FLAGS = ["present", "future", "past", "imparfait", "conditional", "subjunctive"]
 
 
 # ----------------------------------------------------------------------

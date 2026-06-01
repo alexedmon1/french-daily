@@ -384,6 +384,7 @@ TENSE_CODES = [
     ("imparfait", "Imparfait"),
     ("past", "Passé composé"),
     ("conditional", "Conditionnel"),
+    ("subjunctive", "Subjonctif"),
 ]
 
 
@@ -435,6 +436,10 @@ class TenseSelectScreen(Screen):
     @on(Button.Pressed, "#tense-conditional")
     def on_conditional(self) -> None:
         self._select_tense("conditional")
+
+    @on(Button.Pressed, "#tense-subjunctive")
+    def on_subjunctive(self) -> None:
+        self._select_tense("subjunctive")
 
     def _select_tense(self, tense: str) -> None:
         self.app.pop_screen()

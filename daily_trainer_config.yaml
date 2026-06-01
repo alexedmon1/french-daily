@@ -1,14 +1,25 @@
 # Daily Trainer Configuration
 
+# Exercise blocks to include in the daily session.
+# Available: vocabulary, conjugation, grammar, sentence
+# Remove or comment out a block to disable it (data and code are kept intact).
+enabled_blocks:
+  - vocabulary
+  - conjugation
+
+# Vocabulary categories to include (whitelist).
+# Empty list = include all categories. Names correspond to filenames in vocabulary/.
+vocabulary_categories:
+  - connectors
+  - expressions
+  - prepositions
+  - questions
+
 # Maximum exercises per session
 max_items: 100
 
 # Maximum new (unseen) items per session
 max_new: 40
-
-# Vocabulary categories to exclude from practice
-excluded_categories:
-  - expressions
 
 # Fuzzy matching threshold for vocabulary exercises (0.0 to 1.0)
 fuzzy_threshold: 0.85

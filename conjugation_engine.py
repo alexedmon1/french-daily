@@ -6,12 +6,13 @@ Conjugation Engine - Generates French verb conjugations algorithmically
 This module loads verb data from verbs.json and generates conjugations for
 regular verbs using patterns, while using stored forms for irregular verbs.
 
-Supports 5 tenses:
+Supports 6 tenses:
 - présent (present)
 - futur simple (future)
 - imparfait (imparfait)
 - passé composé (past)
 - conditionnel présent (conditional)
+- subjonctif présent (subjunctive)
 """
 
 import json
@@ -36,6 +37,7 @@ ER_ENDINGS = {
     "future": ["ai", "as", "a", "ons", "ez", "ont"],
     "imparfait": ["ais", "ais", "ait", "ions", "iez", "aient"],
     "conditional": ["ais", "ais", "ait", "ions", "iez", "aient"],
+    "subjunctive": ["e", "es", "e", "ions", "iez", "ent"],
 }
 
 # Regular -IR verb endings (finir pattern)
@@ -44,6 +46,7 @@ IR_ENDINGS = {
     "future": ["ai", "as", "a", "ons", "ez", "ont"],
     "imparfait": ["issais", "issais", "issait", "issions", "issiez", "issaient"],
     "conditional": ["ais", "ais", "ait", "ions", "iez", "aient"],
+    "subjunctive": ["isse", "isses", "isse", "issions", "issiez", "issent"],
 }
 
 # Avoir conjugations (for passé composé)
@@ -249,6 +252,66 @@ def conjugate_conditional(infinitive: str, verb_data: dict) -> list[str]:
     return [stem + ending for ending in ER_ENDINGS["conditional"]]
 
 
+# Pure-vowel suffix that mutates the present-tense stem when used as the
+# subjunctive nous/vous stem (e.g. voyons -> voy + ions = voyions).
+_SUBJ_PLURAL_ENDINGS = ("ions", "iez")
+_SUBJ_SING_ENDINGS = ("e", "es", "e", "ent")
+
+
+def conjugate_subjunctive(infinitive: str, verb_data: dict) -> list[str]:
+    """
+    Generate présent du subjonctif conjugation.
+
+    Pattern:
+    - Singular and 3rd-plural forms derive from the ils-present stem
+      (drop -ent, add e/es/e/ent).
+    - 1st/2nd plural forms derive from the nous-present stem
+      (drop -ons, add ions/iez).
+    - Fully irregular verbs (être, avoir, aller, faire, pouvoir, savoir,
+      vouloir, valoir) must supply explicit forms.subjunctive.
+    """
+    forms = verb_data.get("forms", {})
+    if "subjunctive" in forms:
+        return forms["subjunctive"]
+
+    verb_type = verb_data.get("type", "")
+    stem = get_stem(infinitive)
+
+    if verb_type == "regular_er":
+        return [stem + ending for ending in ER_ENDINGS["subjunctive"]]
+    if verb_type == "regular_ir":
+        return [stem + ending for ending in IR_ENDINGS["subjunctive"]]
+
+    # Irregular: derive from present tense forms
+    present_forms = conjugate_present(infinitive, verb_data)
+    ils_present = present_forms[5]
+    nous_present = present_forms[3]
+
+    if not ils_present.endswith("ent"):
+        raise ValueError(
+            f"Cannot derive subjunctive for '{infinitive}': "
+            f"3pl present '{ils_present}' does not end in -ent. "
+            "Provide explicit forms.subjunctive in verbs.json."
+        )
+    if not nous_present.endswith("ons"):
+        raise ValueError(
+            f"Cannot derive subjunctive for '{infinitive}': "
+            f"1pl present '{nous_present}' does not end in -ons. "
+            "Provide explicit forms.subjunctive in verbs.json."
+        )
+
+    sing_stem = ils_present[:-3]
+    plur_stem = nous_present[:-3]
+    return [
+        sing_stem + _SUBJ_SING_ENDINGS[0],   # je
+        sing_stem + _SUBJ_SING_ENDINGS[1],   # tu
+        sing_stem + _SUBJ_SING_ENDINGS[2],   # il/elle/on
+        plur_stem + _SUBJ_PLURAL_ENDINGS[0], # nous
+        plur_stem + _SUBJ_PLURAL_ENDINGS[1], # vous
+        sing_stem + _SUBJ_SING_ENDINGS[3],   # ils/elles
+    ]
+
+
 def get_past_participle(infinitive: str, verb_data: dict) -> str:
     """Get past participle for a verb."""
     # Check for explicit past participle
@@ -415,6 +478,8 @@ def conjugate(infinitive: str, tense: str,
         forms = conjugate_passe_compose(bare_infinitive, verb_data, selected_pronouns)
     elif tense == "conditional":
         forms = conjugate_conditional(bare_infinitive, verb_data)
+    elif tense == "subjunctive":
+        forms = conjugate_subjunctive(bare_infinitive, verb_data)
     else:
         raise ValueError(f"Unknown tense: {tense}")
 
@@ -478,13 +543,14 @@ def get_tense_display_name(tense: str) -> str:
         "imparfait": "imparfait",
         "past": "passé composé",
         "conditional": "conditionnel présent",
+        "subjunctive": "subjonctif présent",
     }
     return names.get(tense, tense)
 
 
 def get_all_tenses() -> list[str]:
     """Get list of all supported tense codes."""
-    return ["present", "future", "imparfait", "past", "conditional"]
+    return ["present", "future", "imparfait", "past", "conditional", "subjunctive"]
 
 
 # ----------------------------------------------------------------------
@@ -496,7 +562,7 @@ if __name__ == "__main__":
     print("Testing conjugation engine...\n")
 
     test_verbs = ["parler", "finir", "être", "avoir", "aller"]
-    test_tenses = ["present", "future", "imparfait", "past", "conditional"]
+    test_tenses = get_all_tenses()
 
     for verb in test_verbs:
         print(f"\n=== {verb} ({get_translation(verb)}) ===")

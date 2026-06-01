@@ -21,7 +21,8 @@
         "imparfait": "ét"
       },
       "forms": {
-        "present": ["suis", "es", "est", "sommes", "êtes", "sont"]
+        "present": ["suis", "es", "est", "sommes", "êtes", "sont"],
+        "subjunctive": ["sois", "sois", "soit", "soyons", "soyez", "soient"]
       }
     },
     "avoir": {
@@ -35,7 +36,8 @@
         "imparfait": "av"
       },
       "forms": {
-        "present": ["ai", "as", "a", "avons", "avez", "ont"]
+        "present": ["ai", "as", "a", "avons", "avez", "ont"],
+        "subjunctive": ["aie", "aies", "ait", "ayons", "ayez", "aient"]
       }
     },
     "faire": {
@@ -49,7 +51,8 @@
         "imparfait": "fais"
       },
       "forms": {
-        "present": ["fais", "fais", "fait", "faisons", "faites", "font"]
+        "present": ["fais", "fais", "fait", "faisons", "faites", "font"],
+        "subjunctive": ["fasse", "fasses", "fasse", "fassions", "fassiez", "fassent"]
       }
     },
     "dire": {
@@ -75,7 +78,8 @@
         "future": "ir"
       },
       "forms": {
-        "present": ["vais", "vas", "va", "allons", "allez", "vont"]
+        "present": ["vais", "vas", "va", "allons", "allez", "vont"],
+        "subjunctive": ["aille", "ailles", "aille", "allions", "alliez", "aillent"]
       }
     },
     "voir": {
@@ -103,7 +107,8 @@
         "imparfait": "sav"
       },
       "forms": {
-        "present": ["sais", "sais", "sait", "savons", "savez", "savent"]
+        "present": ["sais", "sais", "sait", "savons", "savez", "savent"],
+        "subjunctive": ["sache", "saches", "sache", "sachions", "sachiez", "sachent"]
       }
     },
     "pouvoir": {
@@ -117,7 +122,8 @@
         "imparfait": "pouv"
       },
       "forms": {
-        "present": ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"]
+        "present": ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"],
+        "subjunctive": ["puisse", "puisses", "puisse", "puissions", "puissiez", "puissent"]
       }
     },
     "vouloir": {
@@ -131,7 +137,8 @@
         "imparfait": "voul"
       },
       "forms": {
-        "present": ["veux", "veux", "veut", "voulons", "voulez", "veulent"]
+        "present": ["veux", "veux", "veut", "voulons", "voulez", "veulent"],
+        "subjunctive": ["veuille", "veuilles", "veuille", "voulions", "vouliez", "veuillent"]
       }
     },
     "venir": {
@@ -1084,7 +1091,8 @@
         "imparfait": "val"
       },
       "forms": {
-        "present": ["vaux", "vaux", "vaut", "valons", "valez", "valent"]
+        "present": ["vaux", "vaux", "vaut", "valons", "valez", "valent"],
+        "subjunctive": ["vaille", "vailles", "vaille", "valions", "valiez", "vaillent"]
       }
     },
     "battre": {

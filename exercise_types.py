@@ -23,10 +23,14 @@ import yaml
 CONFIG_FILE = Path("daily_trainer_config.yaml")
 _LEGACY_CONFIG_FILE = Path("daily_trainer_config.json")
 
+ALL_BLOCKS = ("vocabulary", "conjugation", "grammar", "sentence")
+
 # Defaults for session settings
 _DEFAULTS = {
     "max_items": 100,
     "max_new": 10,
+    "enabled_blocks": list(ALL_BLOCKS),
+    "vocabulary_categories": [],
     "excluded_categories": [],
     "fuzzy_threshold": 0.85,
     "sentence_threshold": 0.80,
@@ -47,10 +51,37 @@ def _load_config() -> dict:
     return {**_DEFAULTS, **config}
 
 
-def _load_excluded_categories() -> set[str]:
-    """Load excluded vocabulary categories from config file."""
+def _load_enabled_blocks() -> set[str]:
+    """Return the set of enabled block names (lowercased).
+
+    A missing or empty `enabled_blocks` list defaults to all blocks enabled.
+    """
     config = _load_config()
-    return set(config.get("excluded_categories", []))
+    blocks = config.get("enabled_blocks") or list(ALL_BLOCKS)
+    return {str(b).strip().lower() for b in blocks}
+
+
+def _is_block_enabled(type_name: str) -> bool:
+    return type_name.lower() in _load_enabled_blocks()
+
+
+def _load_vocab_filter() -> tuple[set[str], set[str]]:
+    """Return (whitelist, blacklist) of vocabulary categories.
+
+    Whitelist (`vocabulary_categories`) takes precedence when non-empty.
+    `excluded_categories` is consulted as a legacy fallback.
+    """
+    config = _load_config()
+    whitelist = {c.strip() for c in config.get("vocabulary_categories", []) if c.strip()}
+    blacklist = {c.strip() for c in config.get("excluded_categories", []) if c.strip()}
+    return whitelist, blacklist
+
+
+def _vocab_category_allowed(category: str) -> bool:
+    whitelist, blacklist = _load_vocab_filter()
+    if whitelist:
+        return category in whitelist
+    return category not in blacklist
 
 
 # ----------------------------------------------------------------------
@@ -329,7 +360,6 @@ def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
             examples = json.load(f)
 
     stats = load_stats(FLASHCARD_STATS_FILE)
-    excluded = _load_excluded_categories()
 
     # Read cards from CSV
     cards = []
@@ -338,7 +368,7 @@ def _load_vocab_exercises() -> tuple[list[Exercise], dict[str, SRSStats]]:
         for row in reader:
             if len(row) >= 2:
                 category = row[2].strip() if len(row) >= 3 else ""
-                if category in excluded:
+                if not _vocab_category_allowed(category):
                     continue
                 french = row[0]
                 english = row[1]
@@ -585,6 +615,7 @@ def load_all_due(max_items: int | None = None, max_new: int | None = None) -> li
     if max_new is None:
         max_new = config["max_new"]
 
+    enabled = _load_enabled_blocks()
     type_pools: dict[str, tuple[list[Exercise], dict[str, SRSStats]]] = {}
     for name, loader in [
         ("Vocabulary", _load_vocab_exercises),
@@ -592,6 +623,8 @@ def load_all_due(max_items: int | None = None, max_new: int | None = None) -> li
         ("Grammar", _load_grammar_exercises),
         ("Sentence", _load_sentence_exercises),
     ]:
+        if name.lower() not in enabled:
+            continue
         exercises, stats = loader()
         type_pools[name] = (exercises, stats)
 
@@ -714,21 +747,24 @@ def get_conjugation_due_by_tense() -> dict[str, int]:
 
 
 def get_due_counts() -> dict[str, int]:
-    """Get count of due items per type without building full exercise objects."""
+    """Get count of due items per type without building full exercise objects.
+
+    Disabled blocks always report 0 so dashboard layout stays stable.
+    """
     today = date.today().isoformat()
+    enabled = _load_enabled_blocks()
     counts = {"Vocabulary": 0, "Conjugation": 0, "Grammar": 0, "Sentence": 0}
 
     # Vocabulary
     csv_path = Path("master_vocabulary.csv")
-    if csv_path.is_file():
-        excluded = _load_excluded_categories()
+    if "vocabulary" in enabled and csv_path.is_file():
         stats = load_stats(FLASHCARD_STATS_FILE)
         with csv_path.open(newline="", encoding="utf-8") as f:
             reader = csv.reader(f)
             for row in reader:
                 if len(row) >= 2:
                     category = row[2].strip() if len(row) >= 3 else ""
-                    if category in excluded:
+                    if not _vocab_category_allowed(category):
                         continue
                     french_variants = [v.strip() for v in row[0].split("|")]
                     english_variants = [v.strip() for v in row[1].split("|")]
@@ -739,7 +775,7 @@ def get_due_counts() -> dict[str, int]:
 
     # Conjugation
     verb_data_path = Path("conjugation_data/verbs.json")
-    if verb_data_path.is_file():
+    if "conjugation" in enabled and verb_data_path.is_file():
         from conjugation_engine import get_all_verbs, get_all_tenses
         stats = load_stats(CONJUGATION_STATS_FILE)
         for verb in get_all_verbs():
@@ -751,7 +787,7 @@ def get_due_counts() -> dict[str, int]:
 
     # Grammar
     grammar_dir = Path("grammar_data")
-    if grammar_dir.exists():
+    if "grammar" in enabled and grammar_dir.exists():
         stats = load_stats(GRAMMAR_STATS_FILE)
         for json_path in grammar_dir.glob("*.json"):
             topic_name = json_path.stem
@@ -765,7 +801,7 @@ def get_due_counts() -> dict[str, int]:
 
     # Sentence
     sentence_dir = Path("sentence_data")
-    if sentence_dir.exists():
+    if "sentence" in enabled and sentence_dir.exists():
         stats = load_stats(SENTENCE_STATS_FILE)
         for json_path in sentence_dir.glob("*.json"):
             with json_path.open(encoding="utf-8") as f:
