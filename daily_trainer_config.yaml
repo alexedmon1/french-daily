@@ -13,7 +13,6 @@ vocabulary_categories:
   - connectors
   - expressions
   - prepositions
-  - questions
 
 # Maximum exercises per session
 max_items: 100

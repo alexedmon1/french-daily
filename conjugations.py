@@ -36,6 +36,8 @@ from conjugation_engine import (
     get_tense_display_name,
     get_all_tenses,
     get_random_pronouns,
+    join_pronoun,
+    je_elides_before,
 )
 
 # ----------------------------------------------------------------------
@@ -356,8 +358,9 @@ def ask_one_verb(infinitive: str, tense: str) -> tuple[int, int, list]:
     print(f"\nConjuguez le verbe « {infinitive} » ({translation}) au {tense_name}:")
 
     answers = []
-    for p in pronouns:
-        ans = input(f"{p} ... ").strip()
+    for i, p in enumerate(pronouns):
+        subject = "j'" if (p == "je" and je_elides_before(correct_forms[i])) else f"{p} "
+        ans = input(f"{subject}... ").strip()
         ans = normalize_input(ans)
         answers.append(ans)
 
@@ -365,10 +368,10 @@ def ask_one_verb(infinitive: str, tense: str) -> tuple[int, int, list]:
     missed = []
     for i, (user_ans, correct_ans) in enumerate(zip(answers, correct_forms)):
         if user_ans.lower() == correct_ans.lower():
-            print(f"  {pronouns[i]} {user_ans}")
+            print(f"  {join_pronoun(pronouns[i], user_ans)}")
             score += 1
         else:
-            print(f"  {pronouns[i]} {user_ans} -> correct: {correct_ans}")
+            print(f"  {join_pronoun(pronouns[i], user_ans)} -> correct: {join_pronoun(pronouns[i], correct_ans)}")
             missed.append((pronouns[i], user_ans, correct_ans))
 
     print(f"Score pour ce verbe ({tense_name}) : {score}/6")
@@ -537,7 +540,7 @@ Examples:
                 tense_name = get_tense_display_name(tense)
                 print(f"  {infinitive} ({tense_name}) :")
                 for pronoun, user_ans, correct_ans in missed:
-                    print(f"    {pronoun} {correct_ans}  (vous : {user_ans})")
+                    print(f"    {join_pronoun(pronoun, correct_ans)}  (vous : {user_ans})")
     else:
         print("\nAucun point enregistré.")
 

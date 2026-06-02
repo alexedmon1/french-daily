@@ -84,6 +84,26 @@ def reflexive_prefix(pronoun_idx: int, form: str) -> str:
     return base
 
 
+def je_elides_before(form: str) -> bool:
+    """True if the subject 'je' would elide to 'j'' before this form.
+
+    The form may already carry a reflexive prefix (e.g. "me sens"), in which
+    case the first letter is a consonant and no elision occurs.
+    """
+    return bool(form) and form[0].lower() in _ELISION_CHARS
+
+
+def join_pronoun(pronoun: str, form: str) -> str:
+    """Join a subject pronoun and conjugated form, eliding 'je' -> 'j''.
+
+    Only 'je' elides in French, and only before a vowel or mute h
+    (j'aime, j'ai, j'habite). All other pronouns are joined with a space.
+    """
+    if pronoun == "je" and je_elides_before(form):
+        return f"j'{form}"
+    return f"{pronoun} {form}"
+
+
 # ----------------------------------------------------------------------
 # Data loading
 # ----------------------------------------------------------------------

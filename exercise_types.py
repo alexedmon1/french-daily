@@ -240,10 +240,13 @@ class ConjugationExercise(Exercise):
         self.regularity = regularity
 
     def get_prompt(self) -> str:
-        return f"{self.verb} ({self.translation}) — {self.tense_display}\n{self.pronoun} ..."
+        from conjugation_engine import je_elides_before
+        subject = "j'" if (self.pronoun == "je" and je_elides_before(self.correct_form)) else f"{self.pronoun} "
+        return f"{self.verb} ({self.translation}) — {self.tense_display}\n{subject}..."
 
     def get_correct(self) -> str:
-        return f"{self.pronoun} {self.correct_form}"
+        from conjugation_engine import join_pronoun
+        return join_pronoun(self.pronoun, self.correct_form)
 
     def check(self, user_input: str) -> bool:
         return user_input.strip().lower() == self.correct_form.lower()
